@@ -1,0 +1,222 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: FFCBEditor\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-02-25 22:27+0100\n"
+"PO-Revision-Date: 2010-02-25 22:36+0100\n"
+"Last-Translator: Marco <phoenix_87_c@hotmail.com>\n"
+"Language-Team: Phoenix\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Italian\n"
+"X-Poedit-Country: ITALY\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+#: cbgui.cpp:17
+msgid "Select a section to edit on the left"
+msgstr "Seleziona una sezione per la modifica a sinistra"
+
+#: cbgui.cpp:40
+#: cbgui.cpp:105
+msgid "Text to edit:"
+msgstr "Testo da modificare:"
+
+#: cbgui.cpp:50
+msgid "Apply Changes"
+msgstr "Applica Cambiamenti"
+
+#: cbgui.cpp:77
+msgid "Select String:"
+msgstr "Seleziona la Stringa:"
+
+#: cbgui.cpp:82
+msgid "<<"
+msgstr "<<"
+
+#: cbgui.cpp:85
+msgid "#"
+msgstr "#"
+
+#: cbgui.cpp:89
+msgid "/"
+msgstr "/"
+
+#: cbgui.cpp:93
+msgid "##"
+msgstr "##"
+
+#: cbgui.cpp:97
+msgid ">>"
+msgstr ">>"
+
+#: cbgui.cpp:115
+msgid "Apply Changes of Current Text"
+msgstr "Applica Cambiamenti al Testo Corrente"
+
+#: cbgui.cpp:118
+msgid "Save ALL"
+msgstr "Salva TUTTO"
+
+#: cbgui.cpp:149
+msgid "Open..."
+msgstr "Apri..."
+
+#: cbgui.cpp:153
+msgid "Open Folder..."
+msgstr "Apri Cartella..."
+
+#: cbgui.cpp:157
+msgid "Open DB Files from Folder..."
+msgstr "Apri File DB da Cartella..."
+
+#: cbgui.cpp:163
+msgid "Exit"
+msgstr "Esci"
+
+#: cbgui.cpp:166
+msgid "File"
+msgstr "File"
+
+#: cbgui.cpp:170
+msgid "Preferences..."
+msgstr "Preferenze..."
+
+#: cbgui.cpp:173
+msgid "Edit"
+msgstr "Modifica"
+
+#: cbgui.cpp:177
+msgid "About"
+msgstr "Informazioni su..."
+
+#: cbgui.cpp:180
+msgid "Help"
+msgstr "?"
+
+#: cbgui.cpp:237
+#: cbgui.h:221
+msgid "Preferences"
+msgstr "Preferenze"
+
+#: cbgui.cpp:239
+msgid "Hex Editor for Preview:"
+msgstr "Editor Esadecimale per l'Anteprima:"
+
+#: cbgui.cpp:246
+msgid "Browse..."
+msgstr "Sfoglia..."
+
+#: cbgui.cpp:254
+#: cbgui.cpp:295
+msgid "OK"
+msgstr "OK"
+
+#: cbgui.cpp:257
+#: cbgui.cpp:298
+msgid "Cancel"
+msgstr "Annulla"
+
+#: cbgui.cpp:287
+msgid "Open Preview"
+msgstr "Mostra Anteprima"
+
+#: cbgui.cpp:306
+msgid "File Description:"
+msgstr "Descrizione File:"
+
+#: FFCBMainFrame.cpp:23
+msgid "Opened files"
+msgstr "File aperti"
+
+#: FFCBMainFrame.cpp:94
+#: FFCBMainFrame.cpp:123
+#: FFCBMainFrame.cpp:199
+msgid "["
+msgstr "["
+
+#: FFCBMainFrame.cpp:94
+#: FFCBMainFrame.cpp:123
+#: FFCBMainFrame.cpp:199
+msgid "] "
+msgstr "] "
+
+#: FFCBMainFrame.cpp:110
+msgid "Text Section"
+msgstr "Sezione di Testo"
+
+#: FFCBMainFrame.cpp:140
+#, c-format
+msgid "Text Section %d"
+msgstr "Sezione di Testo %d"
+
+#: FFCBMainFrame.cpp:195
+msgid "Edit file description:"
+msgstr "Modifica descrizione del file:"
+
+#: FFCBMainFrame.cpp:225
+msgid ""
+"Final Fantasy Crystal Bearers Text Editor v0.1.\n"
+"Phoenix (SadNES cITy Translations)."
+msgstr ""
+"Final Fantasy Crystal Bearers Text Editor v0.1.\n"
+"Phoenix (SadNES cITy Translations)."
+
+#: FFCBMainFrame.cpp:226
+msgid "Info"
+msgstr "Info"
+
+#: FFCBPreferencesDialog.cpp:35
+msgid "Some data is invalid!"
+msgstr "Alcuni dati non sono validi!"
+
+#: FFCBPreferencesDialog.cpp:35
+msgid "Warning"
+msgstr "Attenzione"
+
+#: FFCBPreviewDialog.cpp:33
+msgid " "
+msgstr " "
+
+#: FFCBPreviewDialog.cpp:33
+msgid "\""
+msgstr "\""
+
+#: FFCBPreviewDialog.cpp:56
+#, c-format
+msgid "Would you like to add %s to the DB?"
+msgstr "Vuoi aggiungere %s al DB?"
+
+#: FFCBPreviewDialog.cpp:56
+msgid "Question"
+msgstr "Domanda"
+
+#: FFCBTextArchivePanel.cpp:18
+#: FFCBTextArchivePanel.cpp:34
+#: FFCBTextArchivePanel.cpp:56
+#: FFCBTextArchivePanel.cpp:57
+#, c-format
+msgid "%d"
+msgstr "%d"
+
+#: cbgui.h:175
+msgid "Final Fantasy Crystal Bearers Editor"
+msgstr "Final Fantasy Crystal Bearers Editor"
+
+#: FFCBPreviewDialog.h:12
+msgid "Single File"
+msgstr "File Singolo"
+
+#: FFCBPreviewDialog.h:13
+msgid "Text Archive"
+msgstr "Archivio di Testi"
+
+#: FFCBPreviewDialog.h:14
+msgid "Unknown"
+msgstr "Sconosciuto"
+
