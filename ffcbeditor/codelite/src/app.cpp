@@ -1,7 +1,6 @@
 #include "app.h"
 
 #include "gui/FFCBMainFrame.h"
-#include "cblib/CBFREBArchive.h"
 
 IMPLEMENT_APP(App)
 bool App::OnInit(){
