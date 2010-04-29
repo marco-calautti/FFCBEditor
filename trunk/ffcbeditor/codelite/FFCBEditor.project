@@ -18,6 +18,10 @@
       <File Name="src/cblib/CBTextSection.h"/>
       <File Name="src/cblib/CBFREBArchive.h"/>
       <File Name="src/cblib/CBFREBArchive.cpp"/>
+      <File Name="src/cblib/CBEEVBFile.h"/>
+      <File Name="src/cblib/CBEEVBFile.cpp"/>
+      <File Name="src/cblib/CBEEVBTextSection.h"/>
+      <File Name="src/cblib/CBEEVBTextSection.cpp"/>
     </VirtualDirectory>
     <VirtualDirectory Name="common">
       <File Name="src/common/common.h"/>
@@ -55,9 +59,6 @@
   </VirtualDirectory>
   <Dependencies Name="Debug"/>
   <Dependencies Name="Release"/>
-  <Dependencies Name="Debug Others"/>
-  <Dependencies Name="Release Others"/>
-  <Dependencies Name="Debug Windows"/>
   <Settings Type="Executable">
     <GlobalSettings>
       <Compiler Options="">
@@ -181,5 +182,8 @@
       </AdditionalRules>
     </Configuration>
   </Settings>
+  <Dependencies Name="Debug Windows"/>
+  <Dependencies Name="Debug Others"/>
+  <Dependencies Name="Release Others"/>
   <Dependencies Name="Release Windows"/>
 </CodeLite_Project>
