@@ -4,6 +4,10 @@
 
 CBTextArchiveSection::CBTextArchiveSection(wxByte *buffer,wxUint32 num)
 {
+	Init(buffer,num);
+}
+void CBTextArchiveSection::Init(wxByte *buffer,wxUint32 num)
+{
 	writableBuffer=NULL;
 	size=num;
 	texts=new wxString[size];
@@ -26,7 +30,7 @@ CBTextArchiveSection::CBTextArchiveSection(wxByte *buffer,wxUint32 num)
 			}
 		}
 		texts[i]=wxString((const char*)&buffer[pos],wxConvISO8859_1);
-	}
+	}	
 }
 
 CBTextArchiveSection::~CBTextArchiveSection()
@@ -134,8 +138,11 @@ wxString CBTextArchiveSection::Parse(size_t i)
 
 char* CBTextArchiveSection::GetWritableBuffer(wxUint32* len)
 {
-	if(writableBuffer)
+	if(writableBuffer){
+		*len=curBufferSize;
 		return writableBuffer;
+	}
+		
 	
 	wxMemoryOutputStream outBuf; //text buffer
 	wxUint32* pointersBuf=new wxUint32[size]; //pointers buffer
@@ -163,6 +170,7 @@ char* CBTextArchiveSection::GetWritableBuffer(wxUint32* len)
 	
 	wxUint32 pointersSize=size*sizeof(wxUint32);
 	*len=pointersSize+outBuf.GetLength();
+	curBufferSize=*len;
 	writableBuffer=new char[(size_t)len]; //final data buffer
 	
 	for(size_t i=0;i<size;i++) //copying pointers header
@@ -181,6 +189,7 @@ void CBTextArchiveSection::FreeBuffer()
 	if(writableBuffer)
 		delete[] writableBuffer;
 	writableBuffer=NULL;
+	curBufferSize=0;
 }
 
 char* CBTextArchiveSection::GetBuf(size_t i,wxUint32* size,bool* unicode)

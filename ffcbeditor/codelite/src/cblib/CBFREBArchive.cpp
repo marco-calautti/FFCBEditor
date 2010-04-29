@@ -87,6 +87,13 @@ wxInputStream* CBFREBArchive::GetFileInputStream(size_t fileIndex)
 	return new FREBFileInputStream(fileArchive,files[fileIndex].fileoffset,files[fileIndex].filesize);
 }
 
+wxInputStream* CBFREBArchive::GetEEVBInputStream()
+{
+	if(containsEEVB)
+		return GetFileInputStream(header.fileCount-1);
+	return NULL;
+}
+
 FREBFileRecord& CBFREBArchive::GetFileRecord(size_t fileIndex)
 {
 	return files[fileIndex];

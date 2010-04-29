@@ -32,7 +32,7 @@ void FFCBPreferencesDialog::OnClickOk( wxCommandEvent& event )
 		UpdateConfigs();
 		Destroy();
 	}else
-		wxMessageBox(_("Some data is invalid!"),_T("Warning"),wxICON_EXCLAMATION,this);
+		wxMessageBox(_("Some data is invalid!"),_("Warning"),wxICON_EXCLAMATION,this);
 }
 
 void FFCBPreferencesDialog::OnClickCancel( wxCommandEvent& event )

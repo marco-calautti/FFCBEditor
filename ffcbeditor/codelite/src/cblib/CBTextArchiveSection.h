@@ -30,6 +30,9 @@ public:
 	CBTextArchiveSection(wxByte* buffer,wxUint32 num);
 	virtual ~CBTextArchiveSection();
 
+protected:
+	void Init(wxByte* buffer,wxUint32 num);
+public:
 	//derived methods
 	virtual wxString GetText();
 	virtual void SetText(wxString& text);
@@ -48,6 +51,7 @@ private:
 	char* GetBuf(size_t i,wxUint32* size,bool* unicode);
 	wxString* texts;
 	char* writableBuffer;
+	wxUint32 curBufferSize;
 	size_t size;
 
 };

@@ -1,10 +1,9 @@
 #include "app.h"
-
 #include "gui/FFCBMainFrame.h"
 
 IMPLEMENT_APP(App)
 bool App::OnInit(){
-
+	
 	if(locale.Init(wxLANGUAGE_DEFAULT, wxLOCALE_CONV_ENCODING)){
 		wxString path;
 		path << wxT(".") << wxFILE_SEP_PATH << wxT("resources");
@@ -13,6 +12,5 @@ bool App::OnInit(){
 	}
 	MainFrame* frame=new FFCBMainFrame(NULL);
 	frame->Show();
-
 	return true;
 }

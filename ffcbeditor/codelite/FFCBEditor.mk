@@ -13,7 +13,7 @@ CurrentFileName        :=
 CurrentFilePath        :=
 CurrentFileFullPath    :=
 User                   :=Administrator
-Date                   :=04/23/10
+Date                   :=04/27/10
 CodeLitePath           :="C:\Program Files\CodeLite"
 LinkerName             :=g++
 ArchiveTool            :=ar rcus
@@ -52,8 +52,8 @@ LibPath                := "$(LibraryPathSwitch)."
 UNIT_TEST_PP_SRC_DIR:=C:\UnitTest++-1.3
 WXCFG:=gcc_lib\mswu
 WXWIN:=C:\wxWidgets-2.8.9
-Objects=src/cblib/$(IntermediateDirectory)/CBSingleFile$(ObjectSuffix) src/cblib/$(IntermediateDirectory)/CBSingleFileTextSection$(ObjectSuffix) src/cblib/$(IntermediateDirectory)/CBTextArchive$(ObjectSuffix) src/cblib/$(IntermediateDirectory)/CBTextArchiveSection$(ObjectSuffix) src/cblib/$(IntermediateDirectory)/CBFREBArchive$(ObjectSuffix) src/common/$(IntermediateDirectory)/ConfigManager$(ObjectSuffix) src/common/$(IntermediateDirectory)/DBManager$(ObjectSuffix) src/gui/$(IntermediateDirectory)/cbgui$(ObjectSuffix) src/gui/$(IntermediateDirectory)/CBItemData$(ObjectSuffix) src/gui/$(IntermediateDirectory)/FFCBMainFrame$(ObjectSuffix) \
-	src/gui/$(IntermediateDirectory)/FFCBPreferencesDialog$(ObjectSuffix) src/gui/$(IntermediateDirectory)/FFCBPreviewDialog$(ObjectSuffix) src/gui/$(IntermediateDirectory)/FFCBSingleFilePanel$(ObjectSuffix) src/gui/$(IntermediateDirectory)/FFCBTextArchivePanel$(ObjectSuffix) src/gui/$(IntermediateDirectory)/FFCBDropTarget$(ObjectSuffix) src/$(IntermediateDirectory)/app$(ObjectSuffix) $(IntermediateDirectory)/resource.rc$(ObjectSuffix) 
+Objects=src/cblib/$(IntermediateDirectory)/CBSingleFile$(ObjectSuffix) src/cblib/$(IntermediateDirectory)/CBSingleFileTextSection$(ObjectSuffix) src/cblib/$(IntermediateDirectory)/CBTextArchive$(ObjectSuffix) src/cblib/$(IntermediateDirectory)/CBTextArchiveSection$(ObjectSuffix) src/cblib/$(IntermediateDirectory)/CBFREBArchive$(ObjectSuffix) src/cblib/$(IntermediateDirectory)/CBEEVBFile$(ObjectSuffix) src/cblib/$(IntermediateDirectory)/CBEEVBTextSection$(ObjectSuffix) src/common/$(IntermediateDirectory)/ConfigManager$(ObjectSuffix) src/common/$(IntermediateDirectory)/DBManager$(ObjectSuffix) src/gui/$(IntermediateDirectory)/cbgui$(ObjectSuffix) \
+	src/gui/$(IntermediateDirectory)/CBItemData$(ObjectSuffix) src/gui/$(IntermediateDirectory)/FFCBMainFrame$(ObjectSuffix) src/gui/$(IntermediateDirectory)/FFCBPreferencesDialog$(ObjectSuffix) src/gui/$(IntermediateDirectory)/FFCBPreviewDialog$(ObjectSuffix) src/gui/$(IntermediateDirectory)/FFCBSingleFilePanel$(ObjectSuffix) src/gui/$(IntermediateDirectory)/FFCBTextArchivePanel$(ObjectSuffix) src/gui/$(IntermediateDirectory)/FFCBDropTarget$(ObjectSuffix) src/$(IntermediateDirectory)/app$(ObjectSuffix) $(IntermediateDirectory)/resource.rc$(ObjectSuffix) 
 
 ##
 ## Main Build Targets 
@@ -107,6 +107,20 @@ src/cblib/$(IntermediateDirectory)/CBFREBArchive$(ObjectSuffix): src/cblib/CBFRE
 src/cblib/$(IntermediateDirectory)/CBFREBArchive$(DependSuffix): src/cblib/CBFREBArchive.cpp
 	@$(MakeDirCommand) "src/cblib/Release"
 	@$(CompilerName) $(CmpOptions) $(IncludePath) -MTsrc/cblib/$(IntermediateDirectory)/CBFREBArchive$(ObjectSuffix) -MFsrc/cblib/$(IntermediateDirectory)/CBFREBArchive$(DependSuffix) -MM "D:/Documenti/CodeLite Projects/workspace/FFCBEditor/src/cblib/CBFREBArchive.cpp"
+
+src/cblib/$(IntermediateDirectory)/CBEEVBFile$(ObjectSuffix): src/cblib/CBEEVBFile.cpp src/cblib/$(IntermediateDirectory)/CBEEVBFile$(DependSuffix)
+	@$(MakeDirCommand) "src/cblib/Release"
+	$(CompilerName) $(SourceSwitch) "D:/Documenti/CodeLite Projects/workspace/FFCBEditor/src/cblib/CBEEVBFile.cpp" $(CmpOptions) $(ObjectSwitch)src/cblib/$(IntermediateDirectory)/CBEEVBFile$(ObjectSuffix) $(IncludePath)
+src/cblib/$(IntermediateDirectory)/CBEEVBFile$(DependSuffix): src/cblib/CBEEVBFile.cpp
+	@$(MakeDirCommand) "src/cblib/Release"
+	@$(CompilerName) $(CmpOptions) $(IncludePath) -MTsrc/cblib/$(IntermediateDirectory)/CBEEVBFile$(ObjectSuffix) -MFsrc/cblib/$(IntermediateDirectory)/CBEEVBFile$(DependSuffix) -MM "D:/Documenti/CodeLite Projects/workspace/FFCBEditor/src/cblib/CBEEVBFile.cpp"
+
+src/cblib/$(IntermediateDirectory)/CBEEVBTextSection$(ObjectSuffix): src/cblib/CBEEVBTextSection.cpp src/cblib/$(IntermediateDirectory)/CBEEVBTextSection$(DependSuffix)
+	@$(MakeDirCommand) "src/cblib/Release"
+	$(CompilerName) $(SourceSwitch) "D:/Documenti/CodeLite Projects/workspace/FFCBEditor/src/cblib/CBEEVBTextSection.cpp" $(CmpOptions) $(ObjectSwitch)src/cblib/$(IntermediateDirectory)/CBEEVBTextSection$(ObjectSuffix) $(IncludePath)
+src/cblib/$(IntermediateDirectory)/CBEEVBTextSection$(DependSuffix): src/cblib/CBEEVBTextSection.cpp
+	@$(MakeDirCommand) "src/cblib/Release"
+	@$(CompilerName) $(CmpOptions) $(IncludePath) -MTsrc/cblib/$(IntermediateDirectory)/CBEEVBTextSection$(ObjectSuffix) -MFsrc/cblib/$(IntermediateDirectory)/CBEEVBTextSection$(DependSuffix) -MM "D:/Documenti/CodeLite Projects/workspace/FFCBEditor/src/cblib/CBEEVBTextSection.cpp"
 
 src/common/$(IntermediateDirectory)/ConfigManager$(ObjectSuffix): src/common/ConfigManager.cpp src/common/$(IntermediateDirectory)/ConfigManager$(DependSuffix)
 	@$(MakeDirCommand) "src/common/Release"
@@ -213,6 +227,12 @@ clean:
 	$(RM) src/cblib/$(IntermediateDirectory)/CBFREBArchive$(ObjectSuffix)
 	$(RM) src/cblib/$(IntermediateDirectory)/CBFREBArchive$(DependSuffix)
 	$(RM) src/cblib/$(IntermediateDirectory)/CBFREBArchive$(PreprocessSuffix)
+	$(RM) src/cblib/$(IntermediateDirectory)/CBEEVBFile$(ObjectSuffix)
+	$(RM) src/cblib/$(IntermediateDirectory)/CBEEVBFile$(DependSuffix)
+	$(RM) src/cblib/$(IntermediateDirectory)/CBEEVBFile$(PreprocessSuffix)
+	$(RM) src/cblib/$(IntermediateDirectory)/CBEEVBTextSection$(ObjectSuffix)
+	$(RM) src/cblib/$(IntermediateDirectory)/CBEEVBTextSection$(DependSuffix)
+	$(RM) src/cblib/$(IntermediateDirectory)/CBEEVBTextSection$(PreprocessSuffix)
 	$(RM) src/common/$(IntermediateDirectory)/ConfigManager$(ObjectSuffix)
 	$(RM) src/common/$(IntermediateDirectory)/ConfigManager$(DependSuffix)
 	$(RM) src/common/$(IntermediateDirectory)/ConfigManager$(PreprocessSuffix)

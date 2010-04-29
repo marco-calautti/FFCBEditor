@@ -56,6 +56,7 @@ public:
 	
 	size_t GetFileCount();
 	wxInputStream* GetFileInputStream(size_t fileIndex);
+	wxInputStream* GetEEVBInputStream();
 	FREBFileRecord& GetFileRecord(size_t fileIndex);
 	bool ContainsEEVB();
 	void Close();
