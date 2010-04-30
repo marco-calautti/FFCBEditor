@@ -18,11 +18,11 @@
 #ifndef __CBEEVB_TEXT_SECTION__
 #define __CBEEVB_TEXT_SECTION__
 
-#include "CBTextSection.h"
+#include "CBMultiLanguageTextSection.h"
 #include "CBTextArchiveSection.h"
 #include <wx/stream.h>
 
-class CBEEVBTextSection : public CBTextSection
+class CBEEVBTextSection : public CBMultiLanguageTextSection
 {
 public:
 	
@@ -31,7 +31,6 @@ public:
 	virtual ~CBEEVBTextSection();
 	
 	//inherited methods
-	//derived methods
 	virtual wxString GetText();
 	virtual void SetText(wxString& text);
 
@@ -42,11 +41,15 @@ public:
 	virtual void FreeBuffer();
 	virtual size_t Size();
 	
+	virtual void SetLanguage(LanguageType lng);
+	virtual LanguageType GetLanguage();
+	
 private:
 	static const char EEVB_KEY[];
 	wxUint32 baseOffset;
 	CBTextArchiveSection* delegateSection;
 	char* writableBuffer;
+	LanguageType lng;
 };
 
 #endif

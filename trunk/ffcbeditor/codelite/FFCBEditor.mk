@@ -13,7 +13,7 @@ CurrentFileName        :=
 CurrentFilePath        :=
 CurrentFileFullPath    :=
 User                   :=Administrator
-Date                   :=04/27/10
+Date                   :=04/30/10
 CodeLitePath           :="C:\Program Files\CodeLite"
 LinkerName             :=g++
 ArchiveTool            :=ar rcus
@@ -52,8 +52,9 @@ LibPath                := "$(LibraryPathSwitch)."
 UNIT_TEST_PP_SRC_DIR:=C:\UnitTest++-1.3
 WXCFG:=gcc_lib\mswu
 WXWIN:=C:\wxWidgets-2.8.9
-Objects=src/cblib/$(IntermediateDirectory)/CBSingleFile$(ObjectSuffix) src/cblib/$(IntermediateDirectory)/CBSingleFileTextSection$(ObjectSuffix) src/cblib/$(IntermediateDirectory)/CBTextArchive$(ObjectSuffix) src/cblib/$(IntermediateDirectory)/CBTextArchiveSection$(ObjectSuffix) src/cblib/$(IntermediateDirectory)/CBFREBArchive$(ObjectSuffix) src/cblib/$(IntermediateDirectory)/CBEEVBFile$(ObjectSuffix) src/cblib/$(IntermediateDirectory)/CBEEVBTextSection$(ObjectSuffix) src/common/$(IntermediateDirectory)/ConfigManager$(ObjectSuffix) src/common/$(IntermediateDirectory)/DBManager$(ObjectSuffix) src/gui/$(IntermediateDirectory)/cbgui$(ObjectSuffix) \
-	src/gui/$(IntermediateDirectory)/CBItemData$(ObjectSuffix) src/gui/$(IntermediateDirectory)/FFCBMainFrame$(ObjectSuffix) src/gui/$(IntermediateDirectory)/FFCBPreferencesDialog$(ObjectSuffix) src/gui/$(IntermediateDirectory)/FFCBPreviewDialog$(ObjectSuffix) src/gui/$(IntermediateDirectory)/FFCBSingleFilePanel$(ObjectSuffix) src/gui/$(IntermediateDirectory)/FFCBTextArchivePanel$(ObjectSuffix) src/gui/$(IntermediateDirectory)/FFCBDropTarget$(ObjectSuffix) src/$(IntermediateDirectory)/app$(ObjectSuffix) $(IntermediateDirectory)/resource.rc$(ObjectSuffix) 
+Objects=src/cblib/$(IntermediateDirectory)/CBSingleFile$(ObjectSuffix) src/cblib/$(IntermediateDirectory)/CBSingleFileTextSection$(ObjectSuffix) src/cblib/$(IntermediateDirectory)/CBTextArchive$(ObjectSuffix) src/cblib/$(IntermediateDirectory)/CBTextArchiveSection$(ObjectSuffix) src/cblib/$(IntermediateDirectory)/CBFREBArchive$(ObjectSuffix) src/cblib/$(IntermediateDirectory)/CBEEVBFile$(ObjectSuffix) src/cblib/$(IntermediateDirectory)/CBEEVBTextSection$(ObjectSuffix) src/common/$(IntermediateDirectory)/ConfigManager$(ObjectSuffix) src/common/$(IntermediateDirectory)/DBManager$(ObjectSuffix) src/common/$(IntermediateDirectory)/FileManager$(ObjectSuffix) \
+	src/gui/$(IntermediateDirectory)/cbgui$(ObjectSuffix) src/gui/$(IntermediateDirectory)/CBItemData$(ObjectSuffix) src/gui/$(IntermediateDirectory)/FFCBMainFrame$(ObjectSuffix) src/gui/$(IntermediateDirectory)/FFCBPreferencesDialog$(ObjectSuffix) src/gui/$(IntermediateDirectory)/FFCBPreviewDialog$(ObjectSuffix) src/gui/$(IntermediateDirectory)/FFCBSingleFilePanel$(ObjectSuffix) src/gui/$(IntermediateDirectory)/FFCBTextArchivePanel$(ObjectSuffix) src/gui/$(IntermediateDirectory)/FFCBDropTarget$(ObjectSuffix) src/$(IntermediateDirectory)/app$(ObjectSuffix) $(IntermediateDirectory)/resource.rc$(ObjectSuffix) \
+	
 
 ##
 ## Main Build Targets 
@@ -135,6 +136,13 @@ src/common/$(IntermediateDirectory)/DBManager$(ObjectSuffix): src/common/DBManag
 src/common/$(IntermediateDirectory)/DBManager$(DependSuffix): src/common/DBManager.cpp
 	@$(MakeDirCommand) "src/common/Release"
 	@$(CompilerName) $(CmpOptions) $(IncludePath) -MTsrc/common/$(IntermediateDirectory)/DBManager$(ObjectSuffix) -MFsrc/common/$(IntermediateDirectory)/DBManager$(DependSuffix) -MM "D:/Documenti/CodeLite Projects/workspace/FFCBEditor/src/common/DBManager.cpp"
+
+src/common/$(IntermediateDirectory)/FileManager$(ObjectSuffix): src/common/FileManager.cpp src/common/$(IntermediateDirectory)/FileManager$(DependSuffix)
+	@$(MakeDirCommand) "src/common/Release"
+	$(CompilerName) $(SourceSwitch) "D:/Documenti/CodeLite Projects/workspace/FFCBEditor/src/common/FileManager.cpp" $(CmpOptions) $(ObjectSwitch)src/common/$(IntermediateDirectory)/FileManager$(ObjectSuffix) $(IncludePath)
+src/common/$(IntermediateDirectory)/FileManager$(DependSuffix): src/common/FileManager.cpp
+	@$(MakeDirCommand) "src/common/Release"
+	@$(CompilerName) $(CmpOptions) $(IncludePath) -MTsrc/common/$(IntermediateDirectory)/FileManager$(ObjectSuffix) -MFsrc/common/$(IntermediateDirectory)/FileManager$(DependSuffix) -MM "D:/Documenti/CodeLite Projects/workspace/FFCBEditor/src/common/FileManager.cpp"
 
 src/gui/$(IntermediateDirectory)/cbgui$(ObjectSuffix): src/gui/cbgui.cpp src/gui/$(IntermediateDirectory)/cbgui$(DependSuffix)
 	@$(MakeDirCommand) "src/gui/Release"
@@ -239,6 +247,9 @@ clean:
 	$(RM) src/common/$(IntermediateDirectory)/DBManager$(ObjectSuffix)
 	$(RM) src/common/$(IntermediateDirectory)/DBManager$(DependSuffix)
 	$(RM) src/common/$(IntermediateDirectory)/DBManager$(PreprocessSuffix)
+	$(RM) src/common/$(IntermediateDirectory)/FileManager$(ObjectSuffix)
+	$(RM) src/common/$(IntermediateDirectory)/FileManager$(DependSuffix)
+	$(RM) src/common/$(IntermediateDirectory)/FileManager$(PreprocessSuffix)
 	$(RM) src/gui/$(IntermediateDirectory)/cbgui$(ObjectSuffix)
 	$(RM) src/gui/$(IntermediateDirectory)/cbgui$(DependSuffix)
 	$(RM) src/gui/$(IntermediateDirectory)/cbgui$(PreprocessSuffix)

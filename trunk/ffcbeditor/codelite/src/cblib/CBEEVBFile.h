@@ -21,7 +21,7 @@
 #include <wx/stream.h>
 #include <wx/wx.h>
 #include <wx/file.h>
-#include "CBTextSection.h"
+#include "CBMultiLanguageTextSection.h"
 
 
 #define EEVB_MAGIC "EEVB"
@@ -45,10 +45,11 @@ public:
 	virtual ~CBEEVBFile();
 	
 	//operators
-	CBTextSection* operator[](size_t i);
+	CBMultiLanguageTextSection* operator[](size_t i);
 	
 	//methods
 	size_t Size();
+	void SetLanguage(LanguageType lng);
 	bool IsDummy();
 	void Close();
 	
@@ -59,7 +60,7 @@ private:
 	
 	//members
 	wxFile* file;
-	CBTextSection** sections;
+	CBMultiLanguageTextSection** sections;
 	EEVBHeader header;
 };
 
