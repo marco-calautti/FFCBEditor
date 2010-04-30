@@ -49,7 +49,7 @@ void CBEEVBFile::Initialize(wxInputStream& stream)
 		pointers[i]=wxINT32_SWAP_ON_LE(pointers[i]);
 	
 	//allocating text sections array
-	sections=new CBTextSection*[EEVB_NUM_POINTERS];
+	sections=new CBMultiLanguageTextSection*[EEVB_NUM_POINTERS];
 	
 	//ready to create TextSections
 	for(size_t i=0;i<EEVB_NUM_POINTERS;i++){
@@ -76,7 +76,7 @@ CBEEVBFile::~CBEEVBFile()
 		delete file;
 }
 
-CBTextSection* CBEEVBFile::operator [](size_t i)
+CBMultiLanguageTextSection* CBEEVBFile::operator [](size_t i)
 {
 	return sections[i];
 }
@@ -84,6 +84,12 @@ CBTextSection* CBEEVBFile::operator [](size_t i)
 size_t CBEEVBFile::Size()
 {
 	return EEVB_NUM_POINTERS;
+}
+
+void CBEEVBFile::SetLanguage(LanguageType lng)
+{
+	for(size_t i=0;i<EEVB_NUM_POINTERS;i++)
+		sections[i]->SetLanguage(lng);
 }
 
 bool CBEEVBFile::IsDummy()

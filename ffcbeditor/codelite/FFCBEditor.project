@@ -2,7 +2,7 @@
 <CodeLite_Project Name="FFCBEditor" InternalType="GUI">
   <Plugins>
     <Plugin Name="qmake">
-      <![CDATA[00050001N0005Debug0000000000000001N0012Debug Others0000000000000001N0007Release0000000000000001N0014Release Others0000000000000001N0015Release Windows000000000000]]>
+      <![CDATA[00060001N0005Debug0000000000000001N0012Debug Others0000000000000001N0013Debug Windows0000000000000001N0007Release0000000000000001N0014Release Others0000000000000001N0015Release Windows000000000000]]>
     </Plugin>
   </Plugins>
   <VirtualDirectory Name="src">
@@ -22,6 +22,7 @@
       <File Name="src/cblib/CBEEVBFile.cpp"/>
       <File Name="src/cblib/CBEEVBTextSection.h"/>
       <File Name="src/cblib/CBEEVBTextSection.cpp"/>
+      <File Name="src/cblib/CBMultiLanguageTextSection.h"/>
     </VirtualDirectory>
     <VirtualDirectory Name="common">
       <File Name="src/common/common.h"/>
@@ -29,6 +30,8 @@
       <File Name="src/common/ConfigManager.h"/>
       <File Name="src/common/DBManager.cpp"/>
       <File Name="src/common/DBManager.h"/>
+      <File Name="src/common/FileManager.h"/>
+      <File Name="src/common/FileManager.cpp"/>
     </VirtualDirectory>
     <VirtualDirectory Name="gui">
       <File Name="src/gui/cbgui.cpp"/>
@@ -59,6 +62,9 @@
   </VirtualDirectory>
   <Dependencies Name="Debug"/>
   <Dependencies Name="Release"/>
+  <Dependencies Name="Debug Others"/>
+  <Dependencies Name="Release Others"/>
+  <Dependencies Name="Debug Windows"/>
   <Settings Type="Executable">
     <GlobalSettings>
       <Compiler Options="">
@@ -182,8 +188,5 @@
       </AdditionalRules>
     </Configuration>
   </Settings>
-  <Dependencies Name="Debug Windows"/>
-  <Dependencies Name="Debug Others"/>
-  <Dependencies Name="Release Others"/>
   <Dependencies Name="Release Windows"/>
 </CodeLite_Project>

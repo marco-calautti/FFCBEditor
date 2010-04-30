@@ -9,6 +9,7 @@ const char CBEEVBTextSection::EEVB_KEY[]={0x4A,0xA5,0x52,0x29,0x94,0xCA,0xE5,0x7
 CBEEVBTextSection::CBEEVBTextSection(wxByte* buffer,wxUint32 size,wxUint32 baseOffset)
 {
 	writableBuffer=NULL;
+	lng=ALL_LANGUAGES;
 	if(((wxUint32*)buffer)[0]==0){
 		delegateSection=NULL;
 		return;
@@ -47,27 +48,37 @@ CBEEVBTextSection::~CBEEVBTextSection()
 wxString CBEEVBTextSection::GetText()
 {
 	//caller must check size first
-	if(delegateSection)
-		return delegateSection->GetText();	
+	if(delegateSection){
+		return GetText(0);
+	}
 	return wxEmptyString;
 }
 
 void CBEEVBTextSection::SetText(wxString& text)
 {
-	if(delegateSection)
-		delegateSection->SetText(text);
+	if(delegateSection){
+		SetText(0,text);
+	}
 	//else do nothing
 }
 wxString CBEEVBTextSection::GetText(size_t i)
 {
-	if(delegateSection)
-		return delegateSection->GetText(i);
+	if(delegateSection){
+		if(lng!=ALL_LANGUAGES)
+			return delegateSection->GetText(i*SUPPORTED_LANGUAGES+lng);
+		else
+			return delegateSection->GetText(i);
+	}
 }
 
 void CBEEVBTextSection::SetText(size_t i,wxString& text)
 {
-	if(delegateSection)
-		delegateSection->SetText(i,text);
+	if(delegateSection){
+		if(lng!=ALL_LANGUAGES)
+			delegateSection->SetText(i*SUPPORTED_LANGUAGES+lng,text);
+		else
+			delegateSection->SetText(i,text);
+	}
 	//else do nothing
 }
 
@@ -78,7 +89,7 @@ char* CBEEVBTextSection::GetWritableBuffer(wxUint32* size)
 	}
 	
 	if(writableBuffer)
-		return writableBuffer;
+		return delegateSection->GetWritableBuffer(size);
 	
 	char* buffer=delegateSection->GetWritableBuffer(size);
 	wxUint32* u32buffer=(wxUint32*)buffer;
@@ -109,8 +120,21 @@ void CBEEVBTextSection::FreeBuffer()
 
 size_t CBEEVBTextSection::Size()
 {
-	if(delegateSection)
-		return delegateSection->Size();
-		
+	if(delegateSection){
+		if(lng!=ALL_LANGUAGES)
+			return delegateSection->Size()/SUPPORTED_LANGUAGES;
+		else
+			return delegateSection->Size();
+	}
 	return 0;
+}
+
+void CBEEVBTextSection::SetLanguage(LanguageType l)
+{
+	lng=l;
+}
+
+LanguageType CBEEVBTextSection::GetLanguage()
+{
+	return lng;
 }
