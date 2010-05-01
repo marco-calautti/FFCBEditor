@@ -7,12 +7,12 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FFCBEditor\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-02-25 22:27+0100\n"
-"PO-Revision-Date: 2010-02-25 22:36+0100\n"
+"POT-Creation-Date: 2010-02-25 22:37+0100\n"
+"PO-Revision-Date: 2010-05-01 18:31+0100\n"
 "Last-Translator: Marco <phoenix_87_c@hotmail.com>\n"
 "Language-Team: Phoenix\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Poedit-Language: Italian\n"
 "X-Poedit-Country: ITALY\n"
@@ -219,4 +219,20 @@ msgstr "Archivio di Testi"
 #: FFCBPreviewDialog.h:14
 msgid "Unknown"
 msgstr "Sconosciuto"
+
+#: cbgui.cpp:106
+msgid "Direct string selection (with preview):"
+msgstr "Selezione diretta stringa (con anteprima):"
+
+#: FFCBTextArchivePanel.cpp:73
+msgid "String %d (%s...)"
+msgstr "Stringa %d (%s...)"
+
+#: FFCBTextArchivePanel.cpp:75
+msgid "String %d (%s)"
+msgstr "Stringa %d (%s)"
+
+#: FFCBTextArchivePanel.cpp:77
+msgid "String %d ()"
+msgstr "Stringa %d ()"
 

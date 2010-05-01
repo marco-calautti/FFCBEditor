@@ -1,21 +1,3 @@
-//Copyright (C) 2010 Phoenix. 
-
-//This program is free software: you can redistribute it and/or modify 
-//it under the terms of the GNU General Public License as published by 
-//the Free Software Foundation, version 2.0. 
-
-//This program is distributed in the hope that it will be useful, 
-//but WITHOUT ANY WARRANTY; without even the implied warranty of 
-//MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the 
-//GNU General Public License 2.0 for more details. 
-
-//A copy of the GPL 2.0 should have been included with the program. 
-//If not, see http://www.gnu.org/licenses/ 
-
-//Official SVN repository and contact information can be found at 
-//http://code.google.com/p/ffcbeditor/
-
-
 ///////////////////////////////////////////////////////////////////////////
 // C++ code generated with wxFormBuilder (version Apr 16 2008)
 // http://www.wxformbuilder.org/
@@ -39,6 +21,7 @@
 #include <wx/textctrl.h>
 #include <wx/statbox.h>
 #include <wx/button.h>
+#include <wx/choice.h>
 #include <wx/bitmap.h>
 #include <wx/image.h>
 #include <wx/icon.h>
@@ -47,7 +30,6 @@
 #include <wx/splitter.h>
 #include <wx/frame.h>
 #include <wx/dialog.h>
-#include <wx/choice.h>
 
 ///////////////////////////////////////////////////////////////////////////
 
@@ -104,6 +86,7 @@ class TextArchivePanel : public wxPanel
 		// Private event handlers
 		void _wxFB_OnPrevText( wxCommandEvent& event ){ OnPrevText( event ); }
 		void _wxFB_OnNextText( wxCommandEvent& event ){ OnNextText( event ); }
+		void _wxFB_OnTextSelected( wxCommandEvent& event ){ OnTextSelected( event ); }
 		void _wxFB_OnApply( wxCommandEvent& event ){ OnApply( event ); }
 		void _wxFB_OnSaveAll( wxCommandEvent& event ){ OnSaveAll( event ); }
 		
@@ -113,6 +96,7 @@ class TextArchivePanel : public wxPanel
 		{
 			wxID_PREV_BUTTON = 1000,
 			wxID_NEXT_BUTTON,
+			wxID_TEXT_SELECTION,
 			wxID_SAVE_BUTTON,
 			wxID_SAVE_ALL,
 		};
@@ -122,6 +106,8 @@ class TextArchivePanel : public wxPanel
 		wxStaticText* staticSep;
 		wxStaticText* staticTotal;
 		wxButton* nextTextButton;
+		wxStaticText* m_staticText8;
+		wxChoice* textSelectionChoice;
 		wxTextCtrl* textField;
 		wxButton* applyButton;
 		wxButton* saveAllButton;
@@ -129,12 +115,13 @@ class TextArchivePanel : public wxPanel
 		// Virtual event handlers, overide them in your derived class
 		virtual void OnPrevText( wxCommandEvent& event ){ event.Skip(); }
 		virtual void OnNextText( wxCommandEvent& event ){ event.Skip(); }
+		virtual void OnTextSelected( wxCommandEvent& event ){ event.Skip(); }
 		virtual void OnApply( wxCommandEvent& event ){ event.Skip(); }
 		virtual void OnSaveAll( wxCommandEvent& event ){ event.Skip(); }
 		
 	
 	public:
-		TextArchivePanel( wxWindow* parent, wxWindowID id = wxID_ANY, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 418,176 ), long style = wxTAB_TRAVERSAL );
+		TextArchivePanel( wxWindow* parent, wxWindowID id = wxID_ANY, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 554,256 ), long style = wxTAB_TRAVERSAL );
 		~TextArchivePanel();
 	
 };
