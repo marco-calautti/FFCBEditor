@@ -53,11 +53,11 @@ void FFCBPreviewDialog::OnOk( wxCommandEvent& event )
 	
 	if(type!=NO_FILE){
 		wxFileName fn(fileName);
-		int res=wxMessageBox(wxString::Format(_("Would you like to add %s to the DB?"),fn.GetFullName()),_("Question"),wxYES_NO,this);
+		wxString fullName=fn.GetFullName();
+		int res=wxMessageBox(wxString::Format(_("Would you like to add %s to the DB?"),fullName.c_str()),_("Question"),wxYES_NO,this);
 		if(res==wxYES){
 			DBManager* manager=DBManager::GetInstance();
 			wxString value=fileDescriptionField->GetValue();
-			wxString fullName=fn.GetFullName();
 			manager->AddFile(fullName,type,value);
 		}
 	}

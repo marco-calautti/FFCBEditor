@@ -36,6 +36,7 @@ protected:
 	void OnNextText( wxCommandEvent& event );
 	void OnApply( wxCommandEvent& event );
 	void OnSaveAll( wxCommandEvent& event );
+	void OnTextSelected( wxCommandEvent& event );
 	
 public:
 	/** Constructor */
@@ -44,6 +45,8 @@ public:
 	void SetEditInfo(CBTextArchive* file,size_t sectionId,wxString fileName);
 
 private:
+
+	void UpdateView();
 	CBTextArchive* file;
 	size_t sectionId;
 	wxString fileName;

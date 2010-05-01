@@ -218,3 +218,18 @@ msgstr ""
 msgid "Unknown"
 msgstr ""
 
+#: cbgui.cpp:106
+msgid "Direct string selection (with preview):"
+msgstr ""
+
+#: FFCBTextArchivePanel.cpp:73
+msgid "String %d (%s...)"
+msgstr ""
+
+#: FFCBTextArchivePanel.cpp:75
+msgid "String %d (%s)"
+msgstr ""
+
+#: FFCBTextArchivePanel.cpp:77
+msgid "String %d ()"
+msgstr ""
