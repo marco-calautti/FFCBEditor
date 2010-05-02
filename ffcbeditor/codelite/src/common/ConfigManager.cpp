@@ -15,6 +15,12 @@ ConfigManager::ConfigManager()
 
 }
 
+ConfigManager::~ConfigManager()
+{
+	if(config)
+		delete config;
+}
+
 ConfigManager* ConfigManager::GetInstance()
 {
 	if(!instance)
@@ -25,6 +31,7 @@ ConfigManager* ConfigManager::GetInstance()
 void ConfigManager::SetParameter(const wxString& key,wxString& val)
 {
 	config->Write(key,val);
+	config->Flush();
 }
 
 wxString ConfigManager::GetParameter(const wxString& key)

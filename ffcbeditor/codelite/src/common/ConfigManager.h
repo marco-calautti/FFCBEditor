@@ -27,6 +27,7 @@ class ConfigManager : public wxObject
 private:
 	static ConfigManager* instance;
 	ConfigManager();
+	virtual ~ConfigManager();
 
 public:
 	static ConfigManager* GetInstance();
