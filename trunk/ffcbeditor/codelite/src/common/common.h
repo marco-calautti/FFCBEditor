@@ -33,6 +33,7 @@ static wxByte curHeaderBuffer[HEADER_BUFFER_SIZE];
 enum FileType{
 	SINGLE_FILE=0,
 	TEXT_ARCHIVE,
+	EEVB_FILE,
 	NO_FILE
 };
 

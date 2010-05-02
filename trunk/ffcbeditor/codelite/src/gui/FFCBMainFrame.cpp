@@ -12,6 +12,7 @@
 #include "../cblib/CBTextArchive.h"
 #include "../common/DBManager.h"
 #include "../common/common.h"
+#include "../common/FileManager.h"
 #include "res/icon.xpm"
 
 FFCBMainFrame::FFCBMainFrame( wxWindow* parent )
@@ -93,7 +94,7 @@ void FFCBMainFrame::OpenFile(wxString& fileName,FileType type)
 		//this file contains only one text section
 		case SINGLE_FILE:
 		{
-			CBSingleFile* file=new CBSingleFile(fileName);
+			CBSingleFile* file=FileManager::GetInstance()->CreateSingleFileBackup(fileName); //new CBSingleFile(fileName);
 			wxString name;
 			wxString fullName=fn.GetFullName();
 			name << wxT("[") << fn.GetFullName() << wxT("] ") << DBManager::GetInstance()->GetFileDescription(fullName);
@@ -122,7 +123,7 @@ void FFCBMainFrame::OpenFile(wxString& fileName,FileType type)
 		//this file is a text archive
 		case TEXT_ARCHIVE:
 		{
-			CBTextArchive* file=new CBTextArchive(fileName);
+			CBTextArchive* file=FileManager::GetInstance()->CreateTextArchiveBackup(fileName);//new CBTextArchive(fileName);
 
 			wxString name;
 			wxString fullName=fn.GetFullName();

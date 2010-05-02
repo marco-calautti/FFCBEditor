@@ -1,4 +1,7 @@
 #include "FFCBTextArchivePanel.h"
+#include "../common/common.h"
+#include "../common/FileManager.h"
+#include <wx/filename.h>
 
 FFCBTextArchivePanel::FFCBTextArchivePanel( wxWindow* parent )
 :
@@ -53,7 +56,10 @@ void FFCBTextArchivePanel::OnApply( wxCommandEvent& event )
 void FFCBTextArchivePanel::OnSaveAll( wxCommandEvent& event )
 {
 	OnApply(event);
-	file->SaveTo(fileName);
+	wxFileName fn(fileName);
+	wxString fullName=fn.GetFullName();
+	wxString backupName=FileManager::GetBackupFilePath(fullName,TEXT_ARCHIVE);
+	file->SaveTo(backupName);
 }
 
 void FFCBTextArchivePanel::SetEditInfo(CBTextArchive* f,size_t i,wxString fn)
