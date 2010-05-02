@@ -1,4 +1,7 @@
 #include "FFCBSingleFilePanel.h"
+#include "../common/FileManager.h"
+#include "../common/common.h"
+#include <wx/filename.h>
 
 FFCBSingleFilePanel::FFCBSingleFilePanel( wxWindow* parent )
 :
@@ -11,7 +14,10 @@ void FFCBSingleFilePanel::OnApplyChanges( wxCommandEvent& event )
 {
 	wxString value=textField->GetValue();
 	file->GetTextSection()->SetText(value);
-	file->SaveTo(fileName);
+	wxFileName fn(fileName);
+	wxString fullName=fn.GetFullName();
+	wxString backupName=FileManager::GetBackupFilePath(fullName,SINGLE_FILE);
+	file->SaveTo(backupName);
 }
 
 void FFCBSingleFilePanel::SetFile(CBSingleFile* f,wxString& fn)
