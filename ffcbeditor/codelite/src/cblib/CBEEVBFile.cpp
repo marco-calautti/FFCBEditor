@@ -5,7 +5,7 @@
 
 CBEEVBFile::CBEEVBFile(wxString& fileName)
 {
-	file=new wxFile(fileName);
+	file=new wxFile(fileName,wxFile::read_write);
 	wxFileInputStream stream(*file);
 	Initialize(stream);
 }
@@ -13,7 +13,7 @@ CBEEVBFile::CBEEVBFile(wxString& fileName)
 
 CBEEVBFile::CBEEVBFile(const wxChar* fileName)
 {
-	file=new wxFile(fileName);
+	file=new wxFile(fileName,wxFile::read_write);
 	wxFileInputStream stream(*file);
 	Initialize(stream);
 }
@@ -63,6 +63,7 @@ void CBEEVBFile::Initialize(wxInputStream& stream)
 		sections[i]=new CBEEVBTextSection(buffer,size,pointers[i]); //create text section
 		delete[] buffer;
 	}
+	curLang=ALL_LANGUAGES;
 }
 
 CBEEVBFile::~CBEEVBFile()
@@ -90,6 +91,7 @@ void CBEEVBFile::SetLanguage(LanguageType lng)
 {
 	for(size_t i=0;i<EEVB_NUM_POINTERS;i++)
 		sections[i]->SetLanguage(lng);
+	curLang=lng;
 }
 
 bool CBEEVBFile::IsDummy()
@@ -100,4 +102,83 @@ bool CBEEVBFile::IsDummy()
 void CBEEVBFile::Close()
 {
 	file->Close();
+}
+
+int CBEEVBFile::Save()
+{
+	//we should save EEVB_NUM_POINTERS text sections. But as for now, we know we
+	//have only one text section. Just to keep saving simple:
+	LanguageType oldLang=curLang;
+	SetLanguage(ALL_LANGUAGES);
+	
+	file->Seek(EEVB_POINTERS_START);
+	wxUint32 sectionStart;
+	wxUint32 lastPointer;
+	file->Read(&sectionStart,4);
+	sectionStart=wxINT32_SWAP_ON_LE(sectionStart);
+	file->Read(&lastPointer,4);
+	lastPointer=wxINT32_SWAP_ON_LE(lastPointer);
+	
+	wxUint32 allowedSize=lastPointer-sectionStart;
+	
+	file->Seek(sectionStart);
+	
+	wxUint32 size;
+	char* buffer=sections[0]->GetWritableBuffer(&size);
+	
+	if(size>allowedSize){
+		sections[0]->FreeBuffer();
+		SetLanguage(oldLang);
+		return EEVB_SECTIONS_TOO_BIG;
+	}
+		
+	file->Write(buffer,size);
+	file->Flush();
+	sections[0]->FreeBuffer();
+
+	SetLanguage(oldLang);
+	
+	return EEVB_SAVE_SUCCESSFUL;
+}
+
+int CBEEVBFile::TrimAndSave(LanguageType lang)
+{
+	if(lang==ALL_LANGUAGES)
+		return Save();
+		
+	wxString empty;
+	CBMultiLanguageTextSection* section=sections[0];
+	LanguageType oldLang=curLang;
+	if(lang!=JAPANESE_LANGUAGE){
+		section->SetLanguage(JAPANESE_LANGUAGE);
+		for(size_t i=0;i<section->Size();i++)
+			section->SetText(i,empty);
+	}
+	
+	if(lang!=ENGLISH_LANGUAGE){
+		section->SetLanguage(ENGLISH_LANGUAGE);
+		for(size_t i=0;i<section->Size();i++)
+			section->SetText(i,empty);
+	}
+	
+	if(lang!=GERMAN_LANGUAGE){
+		section->SetLanguage(GERMAN_LANGUAGE);
+		for(size_t i=0;i<section->Size();i++)
+			section->SetText(i,empty);
+	}
+	
+	if(lang!=FRENCH_LANGUAGE){
+		section->SetLanguage(FRENCH_LANGUAGE);
+		for(size_t i=0;i<section->Size();i++)
+			section->SetText(i,empty);
+	}
+	
+	if(lang!=SPANISH_LANGUAGE){
+		section->SetLanguage(SPANISH_LANGUAGE);
+		for(size_t i=0;i<section->Size();i++)
+			section->SetText(i,empty);
+	}
+	section->SetLanguage(oldLang);
+	
+	return Save();
 }

@@ -26,6 +26,7 @@
 #define DB_FILE_NAME wxT("filesdb.xml")
 #define STR_SINGLE_FILE wxT("SINGLE_FILE")
 #define STR_TEXT_ARCHIVE wxT("TEXT_ARCHIVE")
+#define STR_FREB_ARCHIVE wxT("FREB_ARCHIVE")
 
 #define ALREADY_EXISTS -1
 #define IO_ERROR -2

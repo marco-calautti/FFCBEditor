@@ -34,8 +34,6 @@
       <File Name="src/common/FileManager.cpp"/>
     </VirtualDirectory>
     <VirtualDirectory Name="gui">
-      <File Name="src/gui/cbgui.cpp"/>
-      <File Name="src/gui/cbgui.h"/>
       <File Name="src/gui/CBItemData.cpp"/>
       <File Name="src/gui/CBItemData.h"/>
       <File Name="src/gui/FFCBMainFrame.cpp"/>
@@ -46,11 +44,17 @@
       <File Name="src/gui/FFCBPreviewDialog.h"/>
       <File Name="src/gui/FFCBSingleFilePanel.cpp"/>
       <File Name="src/gui/FFCBSingleFilePanel.h"/>
-      <File Name="src/gui/FFCBTextArchivePanel.cpp"/>
-      <File Name="src/gui/FFCBTextArchivePanel.h"/>
       <File Name="src/gui/FFCBDropTarget.h"/>
       <File Name="src/gui/FFCBFileDropHandler.h"/>
       <File Name="src/gui/FFCBDropTarget.cpp"/>
+      <File Name="src/gui/FFCBTextArchivePanelBase.cpp"/>
+      <File Name="src/gui/FFCBTextArchivePanelBase.h"/>
+      <File Name="src/gui/FFCBTextArchivePanel.h"/>
+      <File Name="src/gui/FFCBTextArchivePanel.cpp"/>
+      <File Name="src/gui/cbgui.h"/>
+      <File Name="src/gui/cbgui.cpp"/>
+      <File Name="src/gui/FFCBEEVBFilePanel.h"/>
+      <File Name="src/gui/FFCBEEVBFilePanel.cpp"/>
     </VirtualDirectory>
     <File Name="src/app.cpp"/>
     <File Name="src/app.h"/>
@@ -187,6 +191,6 @@
       </AdditionalRules>
     </Configuration>
   </Settings>
-  <Dependencies Name="Debug Windows"/>
   <Dependencies Name="Release Windows"/>
+  <Dependencies Name="Debug Windows"/>
 </CodeLite_Project>

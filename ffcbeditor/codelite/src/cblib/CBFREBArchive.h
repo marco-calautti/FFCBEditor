@@ -57,6 +57,8 @@ public:
 	size_t GetFileCount();
 	wxInputStream* GetFileInputStream(size_t fileIndex);
 	wxInputStream* GetEEVBInputStream();
+	
+	bool WriteEVVBFile(wxInputStream& stream);
 	FREBFileRecord& GetFileRecord(size_t fileIndex);
 	bool ContainsEEVB();
 	void Close();

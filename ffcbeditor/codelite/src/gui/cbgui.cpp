@@ -100,19 +100,18 @@ TextArchivePanel::TextArchivePanel( wxWindow* parent, wxWindowID id, const wxPoi
 	
 	sbSizer2->Add( bSizer10, 1, wxEXPAND, 5 );
 	
-	wxBoxSizer* bSizer15;
-	bSizer15 = new wxBoxSizer( wxHORIZONTAL );
+	customSizer = new wxBoxSizer( wxHORIZONTAL );
 	
 	m_staticText8 = new wxStaticText( this, wxID_ANY, _("Direct string selection (with preview):"), wxDefaultPosition, wxDefaultSize, 0 );
 	m_staticText8->Wrap( -1 );
-	bSizer15->Add( m_staticText8, 0, wxALIGN_CENTER|wxALL, 5 );
+	customSizer->Add( m_staticText8, 0, wxALIGN_CENTER|wxALL, 5 );
 	
 	wxArrayString textSelectionChoiceChoices;
 	textSelectionChoice = new wxChoice( this, wxID_TEXT_SELECTION, wxDefaultPosition, wxDefaultSize, textSelectionChoiceChoices, 0 );
 	textSelectionChoice->SetSelection( 0 );
-	bSizer15->Add( textSelectionChoice, 1, wxEXPAND|wxRIGHT, 5 );
+	customSizer->Add( textSelectionChoice, 1, wxEXPAND|wxRIGHT, 5 );
 	
-	sbSizer2->Add( bSizer15, 0, wxALIGN_RIGHT|wxEXPAND, 0 );
+	sbSizer2->Add( customSizer, 0, wxALIGN_RIGHT|wxEXPAND, 0 );
 	
 	bSizer8->Add( sbSizer2, 0, wxEXPAND, 5 );
 	
@@ -152,6 +151,7 @@ BEGIN_EVENT_TABLE( MainFrame, wxFrame )
 	EVT_MENU( wxID_MENU_PREFERENCES, MainFrame::_wxFB_OnClickPreferences )
 	EVT_MENU( wxID_ABOUT, MainFrame::_wxFB_OnAbout )
 	EVT_TREE_ITEM_ACTIVATED( wxID_FILES_TREE, MainFrame::_wxFB_OnItemClicked )
+	EVT_TREE_ITEM_RIGHT_CLICK( wxID_FILES_TREE, MainFrame::_wxFB_OnItemRightClick )
 END_EVENT_TABLE()
 
 MainFrame::MainFrame( wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style ) : wxFrame( parent, id, title, pos, size, style )

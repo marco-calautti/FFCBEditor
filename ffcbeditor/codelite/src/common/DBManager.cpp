@@ -51,7 +51,9 @@ FileType DBManager::GetFileType(wxString& fileName)
 				return SINGLE_FILE;
 			}else if(type==STR_TEXT_ARCHIVE){
 				return TEXT_ARCHIVE;
-			}else return NO_FILE;
+			}else if(type==STR_FREB_ARCHIVE){
+				return FREB_ARCHIVE;
+			}return NO_FILE;
 		}
 
 		node=node->GetNext();
@@ -121,6 +123,10 @@ int DBManager::AddFile(wxString& fileName,FileType type,wxString description)
 
 		case TEXT_ARCHIVE:
 			strType=STR_TEXT_ARCHIVE;
+		break;
+		
+		case FREB_ARCHIVE:
+			strType=STR_FREB_ARCHIVE;
 		break;
 	}
 	wxXmlProperty* prop=new wxXmlProperty(wxT("name"),fileName);
