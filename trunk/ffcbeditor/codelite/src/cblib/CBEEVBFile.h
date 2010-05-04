@@ -38,6 +38,11 @@ class CBEEVBFile : public wxObject
 {
 public:
 	
+	enum{
+		EEVB_SAVE_SUCCESSFUL,
+		EEVB_IO_ERROR,
+		EEVB_SECTIONS_TOO_BIG
+	};
 	//constructors/destructor
 	CBEEVBFile(wxString& fileName);
 	CBEEVBFile(const wxChar* fileName);
@@ -51,6 +56,8 @@ public:
 	size_t Size();
 	void SetLanguage(LanguageType lng);
 	bool IsDummy();
+	int Save();
+	int TrimAndSave(LanguageType lang);
 	void Close();
 	
 private:
@@ -62,6 +69,7 @@ private:
 	wxFile* file;
 	CBMultiLanguageTextSection** sections;
 	EEVBHeader header;
+	LanguageType curLang;
 };
 
 

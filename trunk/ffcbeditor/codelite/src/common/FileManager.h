@@ -70,7 +70,7 @@ public:
 	bool ExistsBackup(wxString& fileName);
 	
 	//if exists a backup file and is different from his original counterpart, changes will
-	//be propacated to the origian file (this method will return true).
+	//be propacated to the original file (this method will return true).
 	//If the file desn't exist or were not made changes, nothing happens (this method will
 	//return false).
 	bool StoreChangesToOriginal(wxString& filePath);

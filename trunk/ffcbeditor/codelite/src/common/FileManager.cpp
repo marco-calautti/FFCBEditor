@@ -1,7 +1,7 @@
+#include <wx/wfstream.h>
 #include <wx/filename.h>
 #include "FileManager.h"
 #include <wx/dir.h>
-#include <wx/docview.h>
 
 FileManager* FileManager::instance=NULL;
 
@@ -125,7 +125,9 @@ CBEEVBFile* FileManager::CreateEEVBFileBackup(wxString& filePath)
 	wxString backupPath=GetBackupFilePath(fileName,EEVB_FILE);
 	CBFREBArchive archive(filePath);
 	if(!archive.ContainsEEVB()) return NULL;
-	wxTransferStreamToFile(*archive.GetEEVBInputStream(),backupPath);
+	wxFileOutputStream output(backupPath);
+	output.Write(*archive.GetEEVBInputStream());
+	output.Close();
 	archive.Close();
 	
 	return GetEEVBFile(fileName);
@@ -138,6 +140,33 @@ bool FileManager::ExistsBackup(wxString& fileName)
 
 bool FileManager::StoreChangesToOriginal(wxString& filePath)
 {
+	//TO-DO: Implement this
+	wxFileName fn(filePath);
+	wxString fullName=fn.GetFullName();
+	wxString backupPath;
+	
+	backupPath=GetBackupFilePath(fullName,SINGLE_FILE);
+	if(wxFile::Exists(backupPath)){
+		//just copy backup to original
+		wxCopyFile(backupPath,filePath);
+		return true;
+	}
+		
+	backupPath=GetBackupFilePath(fullName,TEXT_ARCHIVE);
+	if(wxFile::Exists(backupPath)){
+		//just copy backup to original
+		wxCopyFile(backupPath,filePath);
+		return true;
+	}
+		
+	backupPath=GetBackupFilePath(fullName,EEVB_FILE);
+	if(wxFile::Exists(backupPath)){
+		wxFileInputStream input(backupPath);
+		CBFREBArchive freb(filePath);
+		freb.WriteEVVBFile(input);
+		freb.Close();
+	}
+	
 	return false;
 }
 

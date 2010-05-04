@@ -4,14 +4,14 @@
 
 CBFREBArchive::CBFREBArchive(wxString& filename)
 {
-	fileArchive=new wxFile(filename);
+	fileArchive=new wxFile(filename,wxFile::read_write);
 	wxFileInputStream input(*fileArchive);
 	Initialize(input);
 }
 
 CBFREBArchive::CBFREBArchive(const wxChar* filename)
 {
-	fileArchive=new wxFile(filename);
+	fileArchive=new wxFile(filename,wxFile::read_write);
 	wxFileInputStream input(*fileArchive);
 	Initialize(input);
 }
@@ -111,12 +111,18 @@ bool CBFREBArchive::ContainsEEVB()
 }
 
 
-
-
-
-
-
-
+bool CBFREBArchive::WriteEVVBFile(wxInputStream& stream)
+{
+	fileArchive->Seek(files[header.fileCount-1].fileoffset);
+	wxByte buffer[2048];
+	while(!stream.Eof()){
+		stream.Read(buffer,2048);
+		size_t read=stream.LastRead();
+		fileArchive->Write(buffer,read);
+	}
+	fileArchive->Flush();
+	return true;
+}
 
 
 

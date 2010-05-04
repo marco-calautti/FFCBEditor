@@ -106,6 +106,7 @@ class TextArchivePanel : public wxPanel
 		wxStaticText* staticSep;
 		wxStaticText* staticTotal;
 		wxButton* nextTextButton;
+		wxBoxSizer* customSizer;
 		wxStaticText* m_staticText8;
 		wxChoice* textSelectionChoice;
 		wxTextCtrl* textField;
@@ -143,6 +144,7 @@ class MainFrame : public wxFrame
 		void _wxFB_OnClickPreferences( wxCommandEvent& event ){ OnClickPreferences( event ); }
 		void _wxFB_OnAbout( wxCommandEvent& event ){ OnAbout( event ); }
 		void _wxFB_OnItemClicked( wxTreeEvent& event ){ OnItemClicked( event ); }
+		void _wxFB_OnItemRightClick( wxTreeEvent& event ){ OnItemRightClick( event ); }
 		
 	
 	protected:
@@ -174,6 +176,7 @@ class MainFrame : public wxFrame
 		virtual void OnClickPreferences( wxCommandEvent& event ){ event.Skip(); }
 		virtual void OnAbout( wxCommandEvent& event ){ event.Skip(); }
 		virtual void OnItemClicked( wxTreeEvent& event ){ event.Skip(); }
+		virtual void OnItemRightClick( wxTreeEvent& event ){ event.Skip(); }
 		
 	
 	public:

@@ -15,6 +15,11 @@
 #include "../common/FileManager.h"
 #include "res/icon.xpm"
 
+
+BEGIN_EVENT_TABLE( FFCBMainFrame, MainFrame )
+	EVT_MENU( wxID_BACKUP, FFCBMainFrame::OnBackup )
+END_EVENT_TABLE()
+
 FFCBMainFrame::FFCBMainFrame( wxWindow* parent )
 :
 MainFrame( parent )
@@ -23,15 +28,26 @@ MainFrame( parent )
 	SetIcon(icon);
 
 	filesTree->AddRoot(_("Opened files"));
+	
+	//preparing single file panel
 	singleFilePanel=new FFCBSingleFilePanel(rightPanel);
 	rightPanel->GetSizer()->Add(singleFilePanel, 1, wxALL|wxEXPAND, 5 );
 	singleFilePanel->Show(false);
 
+	//preparing text archive panel
 	archivePanel=new FFCBTextArchivePanel(rightPanel);
 	rightPanel->GetSizer()->Add(archivePanel, 1, wxALL|wxEXPAND, 5 );
 	archivePanel->Show(false);
 	
+	//preparing FREB archive panel
+	eevbPanel=new FFCBEEVBFilePanel(rightPanel);
+	rightPanel->GetSizer()->Add(eevbPanel, 1, wxALL|wxEXPAND, 5 );
+	eevbPanel->Show(false);
+	
 	filesTree->SetDropTarget(new FFCBDropTarget(this));
+	
+	backupMenu=new wxMenu();
+	backupMenu->Append(wxID_BACKUP,_("Synchronize Backup!"));
 }
 
 
@@ -150,6 +166,35 @@ void FFCBMainFrame::OpenFile(wxString& fileName,FileType type)
 			}
 		}
 		break;
+		//this file is a FREB archive
+		case FREB_ARCHIVE:
+		{
+			CBEEVBFile* file=FileManager::GetInstance()->CreateEEVBFileBackup(fileName);
+			wxString name;
+			wxString fullName=fn.GetFullName();
+			name << wxT("[") << fn.GetFullName() << wxT("] ") << DBManager::GetInstance()->GetFileDescription(fullName);
+
+			wxTreeItemId parentId=filesTree->AppendItem(filesTree->GetRootItem(),name);
+			
+			CBItemData* parentData=new CBItemData();
+			parentData->SetType(CB_EEVB_FILE);
+			parentData->SetString(fileName);
+			parentData->SetData(file);
+
+			filesTree->SetItemData(parentId,parentData);
+
+			for(size_t i=0;i<file->Size();i++){
+				CBItemData* itmData=new CBItemData();
+
+				itmData->SetType(CB_TEXT_SECTION);
+				itmData->SetSectionIndex(i);
+
+				wxTreeItemId curId=filesTree->AppendItem(parentId,wxString::Format(_("Text Section %d"),i+1));
+			
+				filesTree->SetItemData(curId,itmData);
+			}
+		}
+		break;
 	}
 }
 
@@ -171,6 +216,7 @@ void FFCBMainFrame::OnItemClicked( wxTreeEvent& event )
 				case CB_SINGLE_FILE:
 				{
 					archivePanel->Show(false);
+					eevbPanel->Show(false);
 					nullPanel->Show(false);
 					wxString name=parentData->GetString(); //filename
 					singleFilePanel->SetFile((CBSingleFile*)parentData->GetData(),name);
@@ -180,12 +226,25 @@ void FFCBMainFrame::OnItemClicked( wxTreeEvent& event )
 				break;
 
 				case CB_TEXT_ARCHIVE:
+				{
 					singleFilePanel->Show(false);
+					eevbPanel->Show(false);
 					nullPanel->Show(false);
 					wxString name=parentData->GetString(); //filename
 					archivePanel->SetEditInfo((CBTextArchive*)parentData->GetData(),data->GetSectionIndex(),name);
 					archivePanel->Show(true);
-
+				}
+				break;
+				
+				case CB_EEVB_FILE:
+				{
+					singleFilePanel->Show(false);
+					nullPanel->Show(false);
+					archivePanel->Show(false);
+					wxString name=parentData->GetString(); //filename
+					eevbPanel->SetEditInfo((CBEEVBFile*)parentData->GetData(),data->GetSectionIndex(),name);
+					eevbPanel->Show(true);
+				}
 				break;
 			}
 
@@ -209,6 +268,43 @@ void FFCBMainFrame::OnItemClicked( wxTreeEvent& event )
 			
 		}
 	}
+}
+
+void FFCBMainFrame::OnItemRightClick(wxTreeEvent& event)
+{
+	wxTreeItemId id=event.GetItem();
+	
+	if(filesTree->GetItemData(id)){
+		CBItemData* data=(CBItemData*)filesTree->GetItemData(id);
+		if(data->GetType()==CB_TEXT_SECTION)
+			return;
+	}
+	
+	PopupMenu(backupMenu,event.GetPoint());
+}
+
+void FFCBMainFrame::OnBackup(wxCommandEvent& event)
+{
+	wxTreeItemId id=filesTree->GetSelection();
+	
+	//file node
+	if(filesTree->GetItemData(id)){
+		CBItemData* data=(CBItemData*)filesTree->GetItemData(id);
+		wxString filePath=data->GetString();
+		FileManager::GetInstance()->StoreChangesToOriginal(filePath);
+	}else{
+		//root node, we synchronize all files
+		wxTreeItemIdValue cookie=0;
+		wxTreeItemId child=filesTree->GetFirstChild(id,cookie);
+		while(child.IsOk()){
+			CBItemData* data=(CBItemData*)filesTree->GetItemData(child);
+			wxString filePath=data->GetString();
+			FileManager::GetInstance()->StoreChangesToOriginal(filePath);
+			child=filesTree->GetNextChild(id,cookie);
+		}
+	}
+	
+	wxMessageBox(_("Synchronization successful!"),_("Notice"),wxOK,this);
 }
 
 void FFCBMainFrame::OnClickPreferences( wxCommandEvent& event)

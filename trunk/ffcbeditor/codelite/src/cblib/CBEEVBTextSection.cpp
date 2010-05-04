@@ -10,6 +10,7 @@ CBEEVBTextSection::CBEEVBTextSection(wxByte* buffer,wxUint32 size,wxUint32 baseO
 {
 	writableBuffer=NULL;
 	lng=ALL_LANGUAGES;
+	this->baseOffset=baseOffset;
 	if(((wxUint32*)buffer)[0]==0){
 		delegateSection=NULL;
 		return;

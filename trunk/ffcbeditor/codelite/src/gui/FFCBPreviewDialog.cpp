@@ -13,6 +13,8 @@ PreviewDialog( parent )
 	choiceBox->AppendString(CHOICE_UNKNOWN);
 	choiceBox->AppendString(CHOICE_SINGLE_FILE);
 	choiceBox->AppendString(CHOICE_TEXT_ARCHIVE);
+	choiceBox->AppendString(CHOICE_FREB_ARCHIVE);
+	
 	choiceBox->SetSelection(0);
 	wxFileName fn(fileName);
 	SetTitle(fn.GetFullName());
@@ -48,6 +50,10 @@ void FFCBPreviewDialog::OnOk( wxCommandEvent& event )
 
 		case 2: //archive
 			type=TEXT_ARCHIVE;
+		break;
+		
+		case 3: //FREB
+			type=FREB_ARCHIVE;
 		break;
 	}
 	

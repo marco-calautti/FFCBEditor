@@ -15,41 +15,38 @@
 //Official SVN repository and contact information can be found at 
 //http://code.google.com/p/ffcbeditor/
 
+#ifndef __FFCB_EEVB_FILE_PANEL__
+#define __FFCB_EEVB_FILE_PANEL__
 
-#ifndef __CB_ITEM_DATA__
-#define __CB_ITEM_DATA__
+#include "FFCBTextArchivePanelBase.h"
+#include "../cblib/CBEEVBFile.h"
+#include "../cblib/CBTextSection.h"
 
-#include <wx/treectrl.h>
-
-#define CB_SINGLE_FILE 1
-#define CB_TEXT_ARCHIVE 2
-#define CB_TEXT_SECTION 3
-#define CB_EEVB_FILE 4
-
-class CBItemData : public wxTreeItemData
+class FFCBEEVBFilePanel : public FFCBTextArchivePanelBase
 {
+	DECLARE_EVENT_TABLE()
+	
 public:
-
-	CBItemData();
-	virtual ~CBItemData();
-
-	void SetType(int type);
-	int GetType();
-
-	void* GetData();
-	void SetData(void* data);
-
-	size_t GetSectionIndex();
-	void SetSectionIndex(size_t sectionIdx);
-
-	wxString GetString();
-	void SetString(wxString str);
-
+	FFCBEEVBFilePanel(wxWindow* parent);
+	
+	void SetEditInfo(CBEEVBFile* f,size_t i,wxString fn);
+	
+protected:
+	enum
+	{
+		wxID_LANGUAGE_SELECTION=2000
+	};
+	
 private:
-	int type;
-	void* data;
-	size_t sectionIdx;
-	wxString str;
+	CBEEVBFile* file;
+	
+	void SaveFile(wxString& fullName);
+	CBTextSection* GetTextSection(size_t idx);
+	
+	void OnLanguageSelected(wxCommandEvent& event);
+	
+	LanguageType curLang;
+	//GUI objects
+	wxChoice* languageChoice;
 };
-
 #endif
