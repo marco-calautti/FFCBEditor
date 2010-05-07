@@ -72,7 +72,7 @@ private:
 	FFCBTextArchivePanel* archivePanel;
 	FFCBEEVBFilePanel* eevbPanel;
 	wxMenu* backupMenu;
-	
+	wxTreeItemId selectedId;
 };
 
 #endif // __FFCBMainFrame__

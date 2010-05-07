@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FFCBEditor\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-02-25 22:37+0100\n"
-"PO-Revision-Date: 2010-05-01 18:31+0100\n"
+"POT-Creation-Date: 2010-05-05 10:52+0100\n"
+"PO-Revision-Date: 2010-05-05 10:57+0100\n"
 "Last-Translator: Marco <phoenix_87_c@hotmail.com>\n"
 "Language-Team: Phoenix\n"
 "MIME-Version: 1.0\n"
@@ -18,221 +18,349 @@ msgstr ""
 "X-Poedit-Country: ITALY\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
-#: cbgui.cpp:17
+#: D:\Documenti\CodeLite
+#: Projects\workspace\FFCBEditor\src/cblib/CBTextArchiveSection.cpp:20
+msgid "No ascending pointers!"
+msgstr "I puntatori non sono consecutivi!"
+
+#: D:\Documenti\CodeLite
+#: Projects\workspace\FFCBEditor\src/cblib/CBTextArchiveSection.cpp:24
+msgid "Unicode identification is not valid!"
+msgstr "Il metodo di identificazione Unicode non è valido!"
+
+#: D:\Documenti\CodeLite
+#: Projects\workspace\FFCBEditor\src/cblib/CBTextArchiveSection.cpp:201
+msgid "Unclosed tag!"
+msgstr "Tag non chiuso!"
+
+#: D:\Documenti\CodeLite
+#: Projects\workspace\FFCBEditor\src/gui/cbgui.cpp:17
 msgid "Select a section to edit on the left"
 msgstr "Seleziona una sezione per la modifica a sinistra"
 
-#: cbgui.cpp:40
-#: cbgui.cpp:105
+#: D:\Documenti\CodeLite
+#: Projects\workspace\FFCBEditor\src/gui/cbgui.cpp:40
+#: Projects\workspace\FFCBEditor\src/gui/cbgui.cpp:119
 msgid "Text to edit:"
 msgstr "Testo da modificare:"
 
-#: cbgui.cpp:50
+#: D:\Documenti\CodeLite
+#: Projects\workspace\FFCBEditor\src/gui/cbgui.cpp:50
 msgid "Apply Changes"
 msgstr "Applica Cambiamenti"
 
-#: cbgui.cpp:77
+#: D:\Documenti\CodeLite
+#: Projects\workspace\FFCBEditor\src/gui/cbgui.cpp:78
 msgid "Select String:"
 msgstr "Seleziona la Stringa:"
 
-#: cbgui.cpp:82
+#: D:\Documenti\CodeLite
+#: Projects\workspace\FFCBEditor\src/gui/cbgui.cpp:83
 msgid "<<"
 msgstr "<<"
 
-#: cbgui.cpp:85
+#: D:\Documenti\CodeLite
+#: Projects\workspace\FFCBEditor\src/gui/cbgui.cpp:86
 msgid "#"
 msgstr "#"
 
-#: cbgui.cpp:89
+#: D:\Documenti\CodeLite
+#: Projects\workspace\FFCBEditor\src/gui/cbgui.cpp:90
 msgid "/"
 msgstr "/"
 
-#: cbgui.cpp:93
+#: D:\Documenti\CodeLite
+#: Projects\workspace\FFCBEditor\src/gui/cbgui.cpp:94
 msgid "##"
 msgstr "##"
 
-#: cbgui.cpp:97
+#: D:\Documenti\CodeLite
+#: Projects\workspace\FFCBEditor\src/gui/cbgui.cpp:98
 msgid ">>"
 msgstr ">>"
 
-#: cbgui.cpp:115
+#: D:\Documenti\CodeLite
+#: Projects\workspace\FFCBEditor\src/gui/cbgui.cpp:105
+msgid "Direct string selection (with preview):"
+msgstr "Selezione diretta stringa (con anteprima):"
+
+#: D:\Documenti\CodeLite
+#: Projects\workspace\FFCBEditor\src/gui/cbgui.cpp:129
 msgid "Apply Changes of Current Text"
 msgstr "Applica Cambiamenti al Testo Corrente"
 
-#: cbgui.cpp:118
+#: D:\Documenti\CodeLite
+#: Projects\workspace\FFCBEditor\src/gui/cbgui.cpp:132
 msgid "Save ALL"
 msgstr "Salva TUTTO"
 
-#: cbgui.cpp:149
+#: D:\Documenti\CodeLite
+#: Projects\workspace\FFCBEditor\src/gui/cbgui.cpp:164
 msgid "Open..."
 msgstr "Apri..."
 
-#: cbgui.cpp:153
+#: D:\Documenti\CodeLite
+#: Projects\workspace\FFCBEditor\src/gui/cbgui.cpp:168
 msgid "Open Folder..."
 msgstr "Apri Cartella..."
 
-#: cbgui.cpp:157
+#: D:\Documenti\CodeLite
+#: Projects\workspace\FFCBEditor\src/gui/cbgui.cpp:172
 msgid "Open DB Files from Folder..."
 msgstr "Apri File DB da Cartella..."
 
-#: cbgui.cpp:163
+#: D:\Documenti\CodeLite
+#: Projects\workspace\FFCBEditor\src/gui/cbgui.cpp:178
 msgid "Exit"
 msgstr "Esci"
 
-#: cbgui.cpp:166
+#: D:\Documenti\CodeLite
+#: Projects\workspace\FFCBEditor\src/gui/cbgui.cpp:181
 msgid "File"
 msgstr "File"
 
-#: cbgui.cpp:170
+#: D:\Documenti\CodeLite
+#: Projects\workspace\FFCBEditor\src/gui/cbgui.cpp:185
 msgid "Preferences..."
 msgstr "Preferenze..."
 
-#: cbgui.cpp:173
+#: D:\Documenti\CodeLite
+#: Projects\workspace\FFCBEditor\src/gui/cbgui.cpp:188
 msgid "Edit"
 msgstr "Modifica"
 
-#: cbgui.cpp:177
+#: D:\Documenti\CodeLite
+#: Projects\workspace\FFCBEditor\src/gui/cbgui.cpp:192
 msgid "About"
 msgstr "Informazioni su..."
 
-#: cbgui.cpp:180
+#: D:\Documenti\CodeLite
+#: Projects\workspace\FFCBEditor\src/gui/cbgui.cpp:195
 msgid "Help"
 msgstr "?"
 
-#: cbgui.cpp:237
-#: cbgui.h:221
+#: D:\Documenti\CodeLite
+#: Projects\workspace\FFCBEditor\src/gui/cbgui.cpp:252
 msgid "Preferences"
 msgstr "Preferenze"
 
-#: cbgui.cpp:239
+#: D:\Documenti\CodeLite
+#: Projects\workspace\FFCBEditor\src/gui/cbgui.cpp:254
 msgid "Hex Editor for Preview:"
 msgstr "Editor Esadecimale per l'Anteprima:"
 
-#: cbgui.cpp:246
+#: D:\Documenti\CodeLite
+#: Projects\workspace\FFCBEditor\src/gui/cbgui.cpp:261
 msgid "Browse..."
 msgstr "Sfoglia..."
 
-#: cbgui.cpp:254
-#: cbgui.cpp:295
+#: D:\Documenti\CodeLite
+#: Projects\workspace\FFCBEditor\src/gui/cbgui.cpp:269
+#: Projects\workspace\FFCBEditor\src/gui/cbgui.cpp:310
 msgid "OK"
 msgstr "OK"
 
-#: cbgui.cpp:257
-#: cbgui.cpp:298
+#: D:\Documenti\CodeLite
+#: Projects\workspace\FFCBEditor\src/gui/cbgui.cpp:272
+#: Projects\workspace\FFCBEditor\src/gui/cbgui.cpp:313
 msgid "Cancel"
 msgstr "Annulla"
 
-#: cbgui.cpp:287
+#: D:\Documenti\CodeLite
+#: Projects\workspace\FFCBEditor\src/gui/cbgui.cpp:302
 msgid "Open Preview"
 msgstr "Mostra Anteprima"
 
-#: cbgui.cpp:306
+#: D:\Documenti\CodeLite
+#: Projects\workspace\FFCBEditor\src/gui/cbgui.cpp:321
 msgid "File Description:"
 msgstr "Descrizione File:"
 
-#: FFCBMainFrame.cpp:23
+#: D:\Documenti\CodeLite
+#: Projects\workspace\FFCBEditor\src/gui/FFCBEEVBFilePanel.cpp:17
+msgid "All languages"
+msgstr "Tutte le lingue"
+
+#: D:\Documenti\CodeLite
+#: Projects\workspace\FFCBEditor\src/gui/FFCBEEVBFilePanel.cpp:18
+msgid "Japanese"
+msgstr "Giapponese"
+
+#: D:\Documenti\CodeLite
+#: Projects\workspace\FFCBEditor\src/gui/FFCBEEVBFilePanel.cpp:19
+msgid "English"
+msgstr "Inglese"
+
+#: D:\Documenti\CodeLite
+#: Projects\workspace\FFCBEditor\src/gui/FFCBEEVBFilePanel.cpp:20
+msgid "German"
+msgstr "Tedesco"
+
+#: D:\Documenti\CodeLite
+#: Projects\workspace\FFCBEditor\src/gui/FFCBEEVBFilePanel.cpp:21
+msgid "French"
+msgstr "Francese"
+
+#: D:\Documenti\CodeLite
+#: Projects\workspace\FFCBEditor\src/gui/FFCBEEVBFilePanel.cpp:22
+msgid "Spanish"
+msgstr "Spagnolo"
+
+#: D:\Documenti\CodeLite
+#: Projects\workspace\FFCBEditor\src/gui/FFCBEEVBFilePanel.cpp:38
+#: Projects\workspace\FFCBEditor\src/gui/FFCBEEVBFilePanel.cpp:49
+msgid ""
+"Cannot write changes to file:\n"
+"IO Error occurred!"
+msgstr ""
+"Impossibile scrivere il file:\n"
+"Si è verificato un errore di IO!"
+
+#: D:\Documenti\CodeLite
+#: Projects\workspace\FFCBEditor\src/gui/FFCBEEVBFilePanel.cpp:38
+#: Projects\workspace\FFCBEditor\src/gui/FFCBEEVBFilePanel.cpp:44
+#: Projects\workspace\FFCBEditor\src/gui/FFCBEEVBFilePanel.cpp:49
+#: Projects\workspace\FFCBEditor\src/gui/FFCBEEVBFilePanel.cpp:55
+msgid "Warning"
+msgstr "Attenzione"
+
+#: D:\Documenti\CodeLite
+#: Projects\workspace\FFCBEditor\src/gui/FFCBEEVBFilePanel.cpp:44
+msgid ""
+"Cannot write changes to file:\n"
+"Current text sections are too big!\n"
+"\n"
+"Would you like to save only currently selected language?"
+msgstr ""
+"Impossibile scrivere il file:\n"
+"Le sezioni di testo sono troppo grandi!\n"
+"\n"
+"Vuoi salvare soltanto il testo nella lingua selezionata?"
+
+#: D:\Documenti\CodeLite
+#: Projects\workspace\FFCBEditor\src/gui/FFCBEEVBFilePanel.cpp:55
+msgid ""
+"This should never happen :(.\n"
+"Trimming other languages is not enough!"
+msgstr ""
+"Questa cosa non dovrebbe mai accadere :(.\n"
+"Il trimming degli altri linguaggi non è ancora abbastanza!"
+
+#: D:\Documenti\CodeLite
+#: Projects\workspace\FFCBEditor\src/gui/FFCBMainFrame.cpp:30
 msgid "Opened files"
 msgstr "File aperti"
 
-#: FFCBMainFrame.cpp:94
-#: FFCBMainFrame.cpp:123
-#: FFCBMainFrame.cpp:199
-msgid "["
-msgstr "["
+#: D:\Documenti\CodeLite
+#: Projects\workspace\FFCBEditor\src/gui/FFCBMainFrame.cpp:50
+msgid "Synchronize Backup!"
+msgstr "Sincronizza Backup!"
 
-#: FFCBMainFrame.cpp:94
-#: FFCBMainFrame.cpp:123
-#: FFCBMainFrame.cpp:199
-msgid "] "
-msgstr "] "
-
-#: FFCBMainFrame.cpp:110
+#: D:\Documenti\CodeLite
+#: Projects\workspace\FFCBEditor\src/gui/FFCBMainFrame.cpp:132
 msgid "Text Section"
 msgstr "Sezione di Testo"
 
-#: FFCBMainFrame.cpp:140
+#: D:\Documenti\CodeLite
+#: Projects\workspace\FFCBEditor\src/gui/FFCBMainFrame.cpp:163
+#: Projects\workspace\FFCBEditor\src/gui/FFCBMainFrame.cpp:192
 #, c-format
 msgid "Text Section %d"
 msgstr "Sezione di Testo %d"
 
-#: FFCBMainFrame.cpp:195
+#: D:\Documenti\CodeLite
+#: Projects\workspace\FFCBEditor\src/gui/FFCBMainFrame.cpp:261
 msgid "Edit file description:"
 msgstr "Modifica descrizione del file:"
 
-#: FFCBMainFrame.cpp:225
-msgid ""
-"Final Fantasy Crystal Bearers Text Editor v0.1.\n"
-"Phoenix (SadNES cITy Translations)."
-msgstr ""
-"Final Fantasy Crystal Bearers Text Editor v0.1.\n"
-"Phoenix (SadNES cITy Translations)."
+#: D:\Documenti\CodeLite
+#: Projects\workspace\FFCBEditor\src/gui/FFCBMainFrame.cpp:305
+msgid "Synchronization successful!"
+msgstr "Sincronizzazione completata!"
 
-#: FFCBMainFrame.cpp:226
-msgid "Info"
-msgstr "Info"
+#: D:\Documenti\CodeLite
+#: Projects\workspace\FFCBEditor\src/gui/FFCBMainFrame.cpp:305
+msgid "Notice"
+msgstr "Notifica"
 
-#: FFCBPreferencesDialog.cpp:35
+#: D:\Documenti\CodeLite
+#: Projects\workspace\FFCBEditor\src/gui/FFCBPreferencesDialog.cpp:35
 msgid "Some data is invalid!"
 msgstr "Alcuni dati non sono validi!"
 
-#: FFCBPreferencesDialog.cpp:35
-msgid "Warning"
-msgstr "Attenzione"
-
-#: FFCBPreviewDialog.cpp:33
-msgid " "
-msgstr " "
-
-#: FFCBPreviewDialog.cpp:33
-msgid "\""
-msgstr "\""
-
-#: FFCBPreviewDialog.cpp:56
+#: D:\Documenti\CodeLite
+#: Projects\workspace\FFCBEditor\src/gui/FFCBPreviewDialog.cpp:63
 #, c-format
 msgid "Would you like to add %s to the DB?"
 msgstr "Vuoi aggiungere %s al DB?"
 
-#: FFCBPreviewDialog.cpp:56
+#: D:\Documenti\CodeLite
+#: Projects\workspace\FFCBEditor\src/gui/FFCBPreviewDialog.cpp:63
 msgid "Question"
 msgstr "Domanda"
 
-#: FFCBTextArchivePanel.cpp:18
-#: FFCBTextArchivePanel.cpp:34
-#: FFCBTextArchivePanel.cpp:56
-#: FFCBTextArchivePanel.cpp:57
+#: D:\Documenti\CodeLite
+#: Projects\workspace\FFCBEditor\src/gui/FFCBTextArchivePanelBase.cpp:54
+#: Projects\workspace\FFCBEditor\src/gui/FFCBTextArchivePanelBase.cpp:81
 #, c-format
-msgid "%d"
-msgstr "%d"
-
-#: cbgui.h:175
-msgid "Final Fantasy Crystal Bearers Editor"
-msgstr "Final Fantasy Crystal Bearers Editor"
-
-#: FFCBPreviewDialog.h:12
-msgid "Single File"
-msgstr "File Singolo"
-
-#: FFCBPreviewDialog.h:13
-msgid "Text Archive"
-msgstr "Archivio di Testi"
-
-#: FFCBPreviewDialog.h:14
-msgid "Unknown"
-msgstr "Sconosciuto"
-
-#: cbgui.cpp:106
-msgid "Direct string selection (with preview):"
-msgstr "Selezione diretta stringa (con anteprima):"
-
-#: FFCBTextArchivePanel.cpp:73
 msgid "String %d (%s...)"
 msgstr "Stringa %d (%s...)"
 
-#: FFCBTextArchivePanel.cpp:75
+#: D:\Documenti\CodeLite
+#: Projects\workspace\FFCBEditor\src/gui/FFCBTextArchivePanelBase.cpp:56
+#: Projects\workspace\FFCBEditor\src/gui/FFCBTextArchivePanelBase.cpp:83
+#, c-format
 msgid "String %d (%s)"
 msgstr "Stringa %d (%s)"
 
-#: FFCBTextArchivePanel.cpp:77
+#: D:\Documenti\CodeLite
+#: Projects\workspace\FFCBEditor\src/gui/FFCBTextArchivePanelBase.cpp:58
+#: Projects\workspace\FFCBEditor\src/gui/FFCBTextArchivePanelBase.cpp:85
+#, c-format
 msgid "String %d ()"
 msgstr "Stringa %d ()"
+
+#: D:\Documenti\CodeLite
+#: Projects\workspace\FFCBEditor\src/gui/cbgui.h:183
+msgid "Final Fantasy Crystal Bearers Editor"
+msgstr "Final Fantasy Crystal Bearers Editor"
+
+#: D:\Documenti\CodeLite
+#: Projects\workspace\FFCBEditor\src/gui/FFCBPreviewDialog.h:30
+msgid "Single File"
+msgstr "File Singolo"
+
+#: D:\Documenti\CodeLite
+#: Projects\workspace\FFCBEditor\src/gui/FFCBPreviewDialog.h:31
+msgid "Text Archive"
+msgstr "Archivio di Testi"
+
+#: D:\Documenti\CodeLite
+#: Projects\workspace\FFCBEditor\src/gui/FFCBPreviewDialog.h:32
+msgid "FREB Archive"
+msgstr "Archivio FREB"
+
+#: D:\Documenti\CodeLite
+#: Projects\workspace\FFCBEditor\src/gui/FFCBPreviewDialog.h:33
+msgid "Unknown"
+msgstr "Sconosciuto"
+
+#~ msgid "["
+#~ msgstr "["
+#~ msgid "] "
+#~ msgstr "] "
+#~ msgid ""
+#~ "Final Fantasy Crystal Bearers Text Editor v0.1.\n"
+#~ "Phoenix (SadNES cITy Translations)."
+#~ msgstr ""
+#~ "Final Fantasy Crystal Bearers Text Editor v0.1.\n"
+#~ "Phoenix (SadNES cITy Translations)."
+#~ msgid "Info"
+#~ msgstr "Info"
+#~ msgid " "
+#~ msgstr " "
+#~ msgid "\""
+#~ msgstr "\""
+#~ msgid "%d"
+#~ msgstr "%d"
 

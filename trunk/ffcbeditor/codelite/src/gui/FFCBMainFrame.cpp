@@ -272,10 +272,10 @@ void FFCBMainFrame::OnItemClicked( wxTreeEvent& event )
 
 void FFCBMainFrame::OnItemRightClick(wxTreeEvent& event)
 {
-	wxTreeItemId id=event.GetItem();
+	selectedId=event.GetItem();
 	
-	if(filesTree->GetItemData(id)){
-		CBItemData* data=(CBItemData*)filesTree->GetItemData(id);
+	if(filesTree->GetItemData(selectedId)){
+		CBItemData* data=(CBItemData*)filesTree->GetItemData(selectedId);
 		if(data->GetType()==CB_TEXT_SECTION)
 			return;
 	}
@@ -285,22 +285,20 @@ void FFCBMainFrame::OnItemRightClick(wxTreeEvent& event)
 
 void FFCBMainFrame::OnBackup(wxCommandEvent& event)
 {
-	wxTreeItemId id=filesTree->GetSelection();
-	
 	//file node
-	if(filesTree->GetItemData(id)){
-		CBItemData* data=(CBItemData*)filesTree->GetItemData(id);
+	if(filesTree->GetItemData(selectedId)){
+		CBItemData* data=(CBItemData*)filesTree->GetItemData(selectedId);
 		wxString filePath=data->GetString();
 		FileManager::GetInstance()->StoreChangesToOriginal(filePath);
 	}else{
 		//root node, we synchronize all files
 		wxTreeItemIdValue cookie=0;
-		wxTreeItemId child=filesTree->GetFirstChild(id,cookie);
+		wxTreeItemId child=filesTree->GetFirstChild(selectedId,cookie);
 		while(child.IsOk()){
 			CBItemData* data=(CBItemData*)filesTree->GetItemData(child);
 			wxString filePath=data->GetString();
 			FileManager::GetInstance()->StoreChangesToOriginal(filePath);
-			child=filesTree->GetNextChild(id,cookie);
+			child=filesTree->GetNextChild(selectedId,cookie);
 		}
 	}
 	
