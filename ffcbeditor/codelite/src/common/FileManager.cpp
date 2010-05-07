@@ -140,7 +140,6 @@ bool FileManager::ExistsBackup(wxString& fileName)
 
 bool FileManager::StoreChangesToOriginal(wxString& filePath)
 {
-	//TO-DO: Implement this
 	wxFileName fn(filePath);
 	wxString fullName=fn.GetFullName();
 	wxString backupPath;
