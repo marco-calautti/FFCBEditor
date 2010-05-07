@@ -43,6 +43,7 @@ protected:
 	virtual void SaveFile(wxString& fullName)=0;
 	void PopulateView(size_t sectId);
 	void UpdateView();
+	void SaveCurrentText();
 public:
 	/** Constructor */
 	FFCBTextArchivePanelBase( wxWindow* parent );

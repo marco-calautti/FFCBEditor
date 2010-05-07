@@ -22,6 +22,8 @@ void FFCBTextArchivePanelBase::UpdateView()
 
 void FFCBTextArchivePanelBase::OnPrevText( wxCommandEvent& event )
 {
+	SaveCurrentText();
+	
 	if(curText==0)
 		curText=GetTextSection(sectionId)->Size()-1;
 	else
@@ -32,11 +34,14 @@ void FFCBTextArchivePanelBase::OnPrevText( wxCommandEvent& event )
 
 void FFCBTextArchivePanelBase::OnNextText( wxCommandEvent& event )
 {
+	SaveCurrentText();
+	
 	if(curText==GetTextSection(sectionId)->Size()-1)
 		curText=0;
 	else
 		curText++;
 
+	
 	UpdateView();
 }
 
@@ -47,15 +52,7 @@ void FFCBTextArchivePanelBase::OnTextSelected( wxCommandEvent& event )
 }
 void FFCBTextArchivePanelBase::OnApply( wxCommandEvent& event )
 {
-	wxString text=textField->GetValue();
-	GetTextSection(sectionId)->SetText(curText,text);
-	
-	if(text.Length()>25)
-		textSelectionChoice->SetString(curText,wxString::Format(_("String %d (%s...)"),curText+1,text.Left(25).c_str()));
-	else if(text.Length()>0)
-		textSelectionChoice->SetString(curText,wxString::Format(_("String %d (%s)"),curText+1,text.c_str()));
-	else
-		textSelectionChoice->SetString(curText,wxString::Format(_("String %d ()"),curText+1));
+	SaveCurrentText();
 	
 	textSelectionChoice->SetSelection(curText);
 	
@@ -84,4 +81,17 @@ void FFCBTextArchivePanelBase::PopulateView(size_t i)
 		else
 			textSelectionChoice->Append(wxString::Format(_("String %d ()"),j+1));
 	}
+}
+
+void FFCBTextArchivePanelBase::SaveCurrentText()
+{
+	wxString text=textField->GetValue();
+	GetTextSection(sectionId)->SetText(curText,text);
+	
+	if(text.Length()>25)
+		textSelectionChoice->SetString(curText,wxString::Format(_("String %d (%s...)"),curText+1,text.Left(25).c_str()));
+	else if(text.Length()>0)
+		textSelectionChoice->SetString(curText,wxString::Format(_("String %d (%s)"),curText+1,text.c_str()));
+	else
+		textSelectionChoice->SetString(curText,wxString::Format(_("String %d ()"),curText+1));
 }
