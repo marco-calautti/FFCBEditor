@@ -65,6 +65,7 @@ BEGIN_EVENT_TABLE( TextArchivePanel, wxPanel )
 	EVT_BUTTON( wxID_PREV_BUTTON, TextArchivePanel::_wxFB_OnPrevText )
 	EVT_BUTTON( wxID_NEXT_BUTTON, TextArchivePanel::_wxFB_OnNextText )
 	EVT_CHOICE( wxID_TEXT_SELECTION, TextArchivePanel::_wxFB_OnTextSelected )
+	EVT_CHECKBOX( wxID_DUPLICATE_CHECK, TextArchivePanel::_wxFB_OnCheckDuplicate )
 	EVT_BUTTON( wxID_SAVE_BUTTON, TextArchivePanel::_wxFB_OnApply )
 	EVT_BUTTON( wxID_SAVE_ALL, TextArchivePanel::_wxFB_OnSaveAll )
 END_EVENT_TABLE()
@@ -125,6 +126,10 @@ TextArchivePanel::TextArchivePanel( wxWindow* parent, wxWindowID id, const wxPoi
 	
 	wxBoxSizer* bSizer9;
 	bSizer9 = new wxBoxSizer( wxHORIZONTAL );
+	
+	duplicateCheckBox = new wxCheckBox( this, wxID_DUPLICATE_CHECK, _("Automatically translate duplicated strings"), wxDefaultPosition, wxDefaultSize, 0 );
+	
+	bSizer9->Add( duplicateCheckBox, 0, wxALIGN_CENTER|wxALL, 5 );
 	
 	applyButton = new wxButton( this, wxID_SAVE_BUTTON, _("Apply Changes of Current Text"), wxDefaultPosition, wxDefaultSize, 0 );
 	bSizer9->Add( applyButton, 0, wxALL, 5 );

@@ -22,6 +22,7 @@
 #include <wx/statbox.h>
 #include <wx/button.h>
 #include <wx/choice.h>
+#include <wx/checkbox.h>
 #include <wx/bitmap.h>
 #include <wx/image.h>
 #include <wx/icon.h>
@@ -87,6 +88,7 @@ class TextArchivePanel : public wxPanel
 		void _wxFB_OnPrevText( wxCommandEvent& event ){ OnPrevText( event ); }
 		void _wxFB_OnNextText( wxCommandEvent& event ){ OnNextText( event ); }
 		void _wxFB_OnTextSelected( wxCommandEvent& event ){ OnTextSelected( event ); }
+		void _wxFB_OnCheckDuplicate( wxCommandEvent& event ){ OnCheckDuplicate( event ); }
 		void _wxFB_OnApply( wxCommandEvent& event ){ OnApply( event ); }
 		void _wxFB_OnSaveAll( wxCommandEvent& event ){ OnSaveAll( event ); }
 		
@@ -97,6 +99,7 @@ class TextArchivePanel : public wxPanel
 			wxID_PREV_BUTTON = 1000,
 			wxID_NEXT_BUTTON,
 			wxID_TEXT_SELECTION,
+			wxID_DUPLICATE_CHECK,
 			wxID_SAVE_BUTTON,
 			wxID_SAVE_ALL,
 		};
@@ -110,6 +113,7 @@ class TextArchivePanel : public wxPanel
 		wxStaticText* m_staticText8;
 		wxChoice* textSelectionChoice;
 		wxTextCtrl* textField;
+		wxCheckBox* duplicateCheckBox;
 		wxButton* applyButton;
 		wxButton* saveAllButton;
 		
@@ -117,6 +121,7 @@ class TextArchivePanel : public wxPanel
 		virtual void OnPrevText( wxCommandEvent& event ){ event.Skip(); }
 		virtual void OnNextText( wxCommandEvent& event ){ event.Skip(); }
 		virtual void OnTextSelected( wxCommandEvent& event ){ event.Skip(); }
+		virtual void OnCheckDuplicate( wxCommandEvent& event ){ event.Skip(); }
 		virtual void OnApply( wxCommandEvent& event ){ event.Skip(); }
 		virtual void OnSaveAll( wxCommandEvent& event ){ event.Skip(); }
 		
@@ -180,7 +185,7 @@ class MainFrame : public wxFrame
 		
 	
 	public:
-		MainFrame( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("Final Fantasy Crystal Bearers Editor"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 800,600 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
+		MainFrame( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("Final Fantasy Crystal Bearers Editor"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 850,600 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
 		~MainFrame();
 		void splitterOnIdle( wxIdleEvent& )
 		{
