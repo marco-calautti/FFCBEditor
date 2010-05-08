@@ -59,7 +59,8 @@ public:
 	int Save();
 	int TrimAndSave(LanguageType lang);
 	void Close();
-	
+	bool ContainsText();
+	bool IsOk();
 private:
 
 	//private methods
@@ -70,6 +71,8 @@ private:
 	CBMultiLanguageTextSection** sections;
 	EEVBHeader header;
 	LanguageType curLang;
+	bool containsText;
+	bool isOk;
 };
 
 

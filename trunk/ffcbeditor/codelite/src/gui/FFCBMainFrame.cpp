@@ -347,6 +347,15 @@ FileType FFCBMainFrame::CheckFileType(wxString& fileName)
 	wxString fullName=fn.GetFullName();
 	//maybe, this file contains text
 	if(!manager->Contains(fullName)){
+		
+		//check if this is a FREB file
+		CBFREBArchive archive(fileName);
+		if(archive.IsOk()){ //this is a freb archive, and must contain text
+			archive.Close();
+			manager->AddFile(fullName,FREB_ARCHIVE);
+			return FREB_ARCHIVE;
+		}
+		archive.Close();
 		//let the user choose
 		FFCBPreviewDialog dialog(this,fileName);
 		type=dialog.GetFileType();

@@ -29,11 +29,19 @@ void CBEEVBFile::Initialize(wxInputStream& stream)
 {
 	wxByte headerBuffer[EEVB_HEADER_SIZE];
 	stream.Read(headerBuffer,EEVB_HEADER_SIZE);
+	isOk=true;
+	containsText=false;
+	sections=NULL;
+	if(strcmp((const char*)headerBuffer,EEVB_MAGIC)){
+		isOk=false;
+		return;
+	}
 	
-	if(strcmp((const char*)headerBuffer,EEVB_MAGIC))
-		return; //not an EEVB file
 	header.unknown=wxINT16_SWAP_ON_LE(*((wxUint16*)&headerBuffer[4]));
 	header.dummy=headerBuffer[6];
+	
+	if(header.dummy==0) return;
+	
 	
 	//positioning to read text blocks pointers
 	stream.SeekI(EEVB_POINTERS_START);
@@ -44,6 +52,9 @@ void CBEEVBFile::Initialize(wxInputStream& stream)
 	//reading text blocks pointers
 	stream.Read(pointers,(EEVB_NUM_POINTERS+1)*4);
 	
+	if(pointers[0]==0)
+		return;
+		
 	//swapping for portability
 	for(size_t i=0;i<EEVB_NUM_POINTERS+1;i++)
 		pointers[i]=wxINT32_SWAP_ON_LE(pointers[i]);
@@ -61,6 +72,8 @@ void CBEEVBFile::Initialize(wxInputStream& stream)
 		wxByte* buffer=new wxByte[size];
 		stream.Read(buffer,size);
 		sections[i]=new CBEEVBTextSection(buffer,size,pointers[i]); //create text section
+		if(sections[i]->Size()>0)
+			containsText=true;
 		delete[] buffer;
 	}
 	curLang=ALL_LANGUAGES;
@@ -181,4 +194,14 @@ int CBEEVBFile::TrimAndSave(LanguageType lang)
 	section->SetLanguage(oldLang);
 	
 	return Save();
+}
+
+bool CBEEVBFile::ContainsText()
+{
+	return containsText;
+}
+
+bool CBEEVBFile::IsOk()
+{
+	return isOk;
 }
