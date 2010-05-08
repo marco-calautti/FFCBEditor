@@ -38,7 +38,7 @@ protected:
 	void OnApply( wxCommandEvent& event );
 	void OnSaveAll( wxCommandEvent& event );
 	void OnTextSelected( wxCommandEvent& event );
-	
+	void OnCheckDuplicate( wxCommandEvent& event );
 	virtual CBTextSection* GetTextSection(size_t idx)=0;
 	virtual void SaveFile(wxString& fullName)=0;
 	void PopulateView(size_t sectId);

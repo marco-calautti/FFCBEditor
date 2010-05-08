@@ -33,9 +33,11 @@ public:
 	static ConfigManager* GetInstance();
 
 	static const wxString HEX_EDITOR_KEY;
-
+	static const wxString TRANSLATE_DUPLICATE_KEY;
 	void SetParameter(const wxString& key,wxString& val);
+	void SetParameter(const wxString& key,bool val);
 	wxString GetParameter(const wxString& key);
+	bool GetParameterBool(const wxString& key);
 
 private:
 	wxConfig* config;
