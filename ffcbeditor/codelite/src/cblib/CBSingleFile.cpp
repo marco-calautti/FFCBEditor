@@ -28,7 +28,7 @@ void CBSingleFile::Initialize(wxInputStream& input)
 	
 	input.Read(buffer,size); 
 	
-	wxUint32 textPointer=wxINT32_SWAP_ON_LE(((wxUint32*)buffer)[0]); //wii's CPU is little endian
+	wxUint32 textPointer=wxINT32_SWAP_ON_LE(((wxUint32*)buffer)[0]); //wii's CPU is big endian
 	
 	textSection=new CBSingleFileTextSection(&buffer[textPointer]); //creating text section
 

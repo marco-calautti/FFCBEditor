@@ -34,13 +34,18 @@ CBFREBArchive::~CBFREBArchive()
 void CBFREBArchive::Initialize(wxInputStream& input)
 {
 	containsEEVB=false;
+	isOk=true;
+	files=NULL;
 	wxByte headerBuffer[FREB_HEADER_SIZE]; //buffer containing temporary header data
 	wxByte fileRecordBuffer[FREB_FILE_RECORD_SIZE]; //buffer containing temporary file record data
 	
 	input.Read(headerBuffer,FREB_HEADER_SIZE); //read the header
 	
-	if(strcmp((const char*)headerBuffer,FREB_MAGIC)) //check valid FREB header
+	if(strcmp((const char*)headerBuffer,FREB_MAGIC)){ //check valid FREB header
+		isOk=false;
 		return;
+		
+	}
 	
 	//copy unknonwn (not useful data)
 	for(size_t i=0;i<0x34;i++)
@@ -110,6 +115,10 @@ bool CBFREBArchive::ContainsEEVB()
 	return containsEEVB;
 }
 
+bool CBFREBArchive::IsOk()
+{
+	return isOk;
+}
 
 bool CBFREBArchive::WriteEVVBFile(wxInputStream& stream)
 {

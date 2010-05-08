@@ -61,8 +61,8 @@ public:
 	bool WriteEVVBFile(wxInputStream& stream);
 	FREBFileRecord& GetFileRecord(size_t fileIndex);
 	bool ContainsEEVB();
+	bool IsOk();
 	void Close();
-	
 private:
 	void Initialize(wxInputStream& input);
 	
@@ -71,7 +71,7 @@ private:
 	FREBFileRecord* files;
 	wxFile* fileArchive;
 	bool containsEEVB;
-	
+	bool isOk;
 	//inner classes
 private:
 

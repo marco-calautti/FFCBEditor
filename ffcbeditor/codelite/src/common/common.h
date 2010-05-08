@@ -21,9 +21,13 @@
 
 #include <wx/wx.h>
 #include <wx/file.h>
+#include <wx/filename.h>
 #include <wx/dir.h>
+#include "../cblib/CBFREBArchive.h"
+#include "../cblib/CBEEVBFile.h"
 
-#define __FFCB_VERSION__ wxT("RC3")
+
+#define __FFCB_VERSION__ wxT("1.0")
 #define __FFCB_LICENSE__ _("This program is free software: you can redistribute it\n" \
 							"and/or modify it under the terms of the GNU General\n" \
 							"Public License as published by the Free Software Foundation,\n" \
@@ -70,7 +74,27 @@ static bool NotContainsText(wxString& fileName)
 		file.Close();
 	}
 
-	return false;
+	//checking if it's a FREB archive containing text
+	CBFREBArchive archive(fileName);
+	if(!archive.IsOk())
+		return false; //this can be another type of file
+	
+	if(!archive.ContainsEEVB())
+		return true;
+	
+	wxString tmpName=wxFileName::CreateTempFileName(wxT("eevb"));
+	wxFileOutputStream outStream(tmpName);
+	outStream.Write(*archive.GetEEVBInputStream());
+	outStream.Close();
+	archive.Close();
+	
+	CBEEVBFile eevb(tmpName);
+	bool isDummy=eevb.IsDummy();
+	bool containsText=eevb.ContainsText();
+	eevb.Close();
+	wxRemoveFile(tmpName);
+	
+	return isDummy||!containsText;
 }
 
 #endif
