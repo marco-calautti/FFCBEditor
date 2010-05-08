@@ -3,6 +3,7 @@
 #include <wx/filedlg.h>
 #include <wx/filename.h>
 #include <wx/dir.h>
+#include <wx/aboutdlg.h>
 
 #include "CBItemData.h"
 #include "FFCBPreviewDialog.h"
@@ -323,11 +324,17 @@ void FFCBMainFrame::OnClickExit( wxCommandEvent& event )
 
 void FFCBMainFrame::OnAbout( wxCommandEvent& event )
 {
-	wxMessageBox(wxT("Final Fantasy Crystal Bearers Text Editor v0.1.\nPhoenix (SadNES cITy Translations)."),
-				 wxT("Info"),
-				 wxICON_INFORMATION,
-				 this);
+	wxAboutDialogInfo info;
+	info.AddDeveloper(wxT("Phoenix (SadNES cITy Translations)"));
+	info.SetLicense(__FFCB_LICENSE__);
+	info.SetName(__FFCB_NAME__);
+	info.SetVersion(__FFCB_VERSION__);
+	info.SetWebSite(__FFCB_WEBSITE__);
+	info.SetCopyright(__FFCB_COPYRIGHT__);
+	
+	wxAboutBox(info);
 }
+
 FileType FFCBMainFrame::CheckFileType(wxString& fileName)
 {
 	FileType type;

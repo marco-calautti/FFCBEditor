@@ -23,6 +23,15 @@
 #include <wx/file.h>
 #include <wx/dir.h>
 
+#define __FFCB_VERSION__ wxT("RC3")
+#define __FFCB_LICENSE__ _("This program is free software: you can redistribute it\n" \
+							"and/or modify it under the terms of the GNU General\n" \
+							"Public License as published by the Free Software Foundation,\n" \
+							"version 2.0.")
+#define __FFCB_NAME__ wxT("Final Fantasy Crystal Bearers Text Editor")
+#define __FFCB_WEBSITE__ wxT("http://code.google.com/p/ffcbeditor/")
+#define __FFCB_COPYRIGHT__ wxT("(C) 2010 Phoenix <phoenix_87_c@hotmail.com>")
+
 #define HEADERS_PATH wxT("headers")
 
 #define HEADER_BUFFER_SIZE 100 //max 100 bytes

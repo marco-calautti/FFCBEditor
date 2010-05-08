@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FFCBEditor\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-05-08 11:03+0100\n"
+"POT-Creation-Date: 2010-05-08 11:25+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Marco <phoenix_87_c@hotmail.com>\n"
 "Language-Team: Phoenix\n"
@@ -244,39 +244,39 @@ msgid ""
 msgstr ""
 
 #: D:\Documenti\CodeLite
-#: Projects\workspace\FFCBEditor\src/gui/FFCBMainFrame.cpp:30
+#: Projects\workspace\FFCBEditor\src/gui/FFCBMainFrame.cpp:31
 msgid "Opened files"
 msgstr ""
 
 #: D:\Documenti\CodeLite
-#: Projects\workspace\FFCBEditor\src/gui/FFCBMainFrame.cpp:50
+#: Projects\workspace\FFCBEditor\src/gui/FFCBMainFrame.cpp:51
 msgid "Synchronize Backup!"
 msgstr ""
 
 #: D:\Documenti\CodeLite
-#: Projects\workspace\FFCBEditor\src/gui/FFCBMainFrame.cpp:132
+#: Projects\workspace\FFCBEditor\src/gui/FFCBMainFrame.cpp:133
 msgid "Text Section"
 msgstr ""
 
 #: D:\Documenti\CodeLite
-#: Projects\workspace\FFCBEditor\src/gui/FFCBMainFrame.cpp:163
-#: Projects\workspace\FFCBEditor\src/gui/FFCBMainFrame.cpp:192
+#: Projects\workspace\FFCBEditor\src/gui/FFCBMainFrame.cpp:164
+#: Projects\workspace\FFCBEditor\src/gui/FFCBMainFrame.cpp:193
 #, c-format
 msgid "Text Section %d"
 msgstr ""
 
 #: D:\Documenti\CodeLite
-#: Projects\workspace\FFCBEditor\src/gui/FFCBMainFrame.cpp:261
+#: Projects\workspace\FFCBEditor\src/gui/FFCBMainFrame.cpp:262
 msgid "Edit file description:"
 msgstr ""
 
 #: D:\Documenti\CodeLite
-#: Projects\workspace\FFCBEditor\src/gui/FFCBMainFrame.cpp:305
+#: Projects\workspace\FFCBEditor\src/gui/FFCBMainFrame.cpp:306
 msgid "Synchronization successful!"
 msgstr ""
 
 #: D:\Documenti\CodeLite
-#: Projects\workspace\FFCBEditor\src/gui/FFCBMainFrame.cpp:305
+#: Projects\workspace\FFCBEditor\src/gui/FFCBMainFrame.cpp:306
 msgid "Notice"
 msgstr ""
 
@@ -321,7 +321,16 @@ msgid "String %d ()"
 msgstr ""
 
 #: D:\Documenti\CodeLite
-#: Projects\workspace\FFCBEditor\src/gui/cbgui.h:188
+#: Projects\workspace\FFCBEditor\src/common/common.h:27
+msgid ""
+"This program is free software: you can redistribute it\n"
+"and/or modify it under the terms of the GNU General\n"
+"Public License as published by the Free Software Foundation,\n"
+"version 2.0."
+msgstr ""
+
+#: D:\Documenti\CodeLite
+#: Projects\workspace\FFCBEditor\src/gui/cbgui.h:206
 msgid "Final Fantasy Crystal Bearers Editor"
 msgstr ""
 
