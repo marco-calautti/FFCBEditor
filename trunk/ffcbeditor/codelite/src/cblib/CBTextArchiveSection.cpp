@@ -155,7 +155,7 @@ char* CBTextArchiveSection::GetWritableBuffer(wxUint32* len)
 		
 		pointersBuf[i]=curPos; //setting current pointer
 		outBuf.Write(strBuf,strBufSize); //writing text data
-
+		
 		if(unicode){
 			outBuf.PutC(0); //end of string
 			outBuf.PutC(0); //end of string
@@ -164,14 +164,15 @@ char* CBTextArchiveSection::GetWritableBuffer(wxUint32* len)
 			outBuf.PutC(0); //fine stringa
 			curPos+=(strBufSize+1);
 		}
-
-		delete[] strBuf; //frees memory
+		
+		if(strBuf)
+			delete[] strBuf; //frees memory
 	}
 	
 	wxUint32 pointersSize=size*sizeof(wxUint32);
 	*len=pointersSize+outBuf.GetLength();
 	curBufferSize=*len;
-	writableBuffer=new char[(size_t)len]; //final data buffer
+	writableBuffer=new char[*len]; //final data buffer
 	
 	for(size_t i=0;i<size;i++) //copying pointers header
 		((wxUint32*)writableBuffer)[i]=wxINT32_SWAP_ON_LE(pointersBuf[i]);
@@ -192,32 +193,33 @@ void CBTextArchiveSection::FreeBuffer()
 	curBufferSize=0;
 }
 
-char* CBTextArchiveSection::GetBuf(size_t i,wxUint32* size,bool* unicode)
+char* CBTextArchiveSection::GetBuf(size_t i,wxUint32* bufSize,bool* unicode)
 {
-	char* buffer=NULL;
+	char* strBuf=NULL;
 
 	if(!texts[i].IsEmpty()&&texts[i][0]=='<'){ //checking UNICODE tag
 		size_t pos=texts[i].find('>');
 		wxASSERT_MSG(pos!=wxString::npos,_("Unclosed tag!"));
 		if(texts[i](0,pos+1)==wxT("<UNICODE>")){ //unicode text
-			*size=(texts[i].Length()-9)*2; //<UNICODE> is 9 in size
-			buffer=new char[(size_t)size];
-			strcpy(buffer,(const char*)texts[i].Right(texts[i].Length()-9).mb_str(wxConvISO8859_1)); //converting string to ISO8859
+			*bufSize=(texts[i].Length()-9)*2; //<UNICODE> is 9 in size
+			strBuf=new char[*bufSize+1];
+			strcpy(strBuf,(const char*)texts[i].Right(texts[i].Length()-9).mb_str(wxConvISO8859_1)); //converting string to ISO8859
 			//converting to UNICODE
-			for(size_t j=0;j<*size/2;j++){
-				buffer[*size-1-j*2]=buffer[*size/2-1-j]; //storing character
-				buffer[*size-j*2-2]=0x00; //second byte of UNICODE char
+			for(size_t j=0;j<(*bufSize)/2;j++){
+				strBuf[*bufSize-1-j*2]=strBuf[(*bufSize)/2-1-j]; //storing character
+				strBuf[*bufSize-j*2-2]=0x00; //second byte of UNICODE char
 			}
 			*unicode=true;
-			return buffer;
+			return strBuf;
 		}
 	}
 	
 	//no UNICODE text
-	*size=texts[i].Length();
-	buffer=new char[(size_t)size];
-	strcpy(buffer,(const char*)texts[i].mb_str(wxConvISO8859_1));
+	*bufSize=texts[i].Length();
+		
+	strBuf=new char[*bufSize+1];
+	strcpy(strBuf,(const char*)texts[i].mb_str(wxConvISO8859_1));
 
 	*unicode=false;
-	return buffer;
+	return strBuf;
 }
