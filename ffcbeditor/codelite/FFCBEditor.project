@@ -191,6 +191,6 @@
       </AdditionalRules>
     </Configuration>
   </Settings>
-  <Dependencies Name="Debug Windows"/>
   <Dependencies Name="Release Windows"/>
+  <Dependencies Name="Debug Windows"/>
 </CodeLite_Project>
