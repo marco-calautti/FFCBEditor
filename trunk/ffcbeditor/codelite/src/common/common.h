@@ -84,8 +84,10 @@ static bool NotContainsText(wxString& fileName)
 	
 	wxString tmpName=wxFileName::CreateTempFileName(wxT("eevb"));
 	wxFileOutputStream outStream(tmpName);
-	outStream.Write(*archive.GetEEVBInputStream());
+	wxInputStream* stream=archive.GetEEVBInputStream();
+	outStream.Write(*stream);
 	outStream.Close();
+	delete stream;
 	archive.Close();
 	
 	CBEEVBFile eevb(tmpName);

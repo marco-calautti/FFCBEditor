@@ -1,21 +1,3 @@
-//Copyright (C) 2010 Phoenix. 
-
-//This program is free software: you can redistribute it and/or modify 
-//it under the terms of the GNU General Public License as published by 
-//the Free Software Foundation, version 2.0. 
-
-//This program is distributed in the hope that it will be useful, 
-//but WITHOUT ANY WARRANTY; without even the implied warranty of 
-//MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the 
-//GNU General Public License 2.0 for more details. 
-
-//A copy of the GPL 2.0 should have been included with the program. 
-//If not, see http://www.gnu.org/licenses/ 
-
-//Official SVN repository and contact information can be found at 
-//http://code.google.com/p/ffcbeditor/
-
-
 ///////////////////////////////////////////////////////////////////////////
 // C++ code generated with wxFormBuilder (version Apr 16 2008)
 // http://www.wxformbuilder.org/
@@ -285,7 +267,7 @@ class PreviewDialog : public wxDialog
 		
 	
 	public:
-		PreviewDialog( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxEmptyString, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 450,88 ), long style = wxDEFAULT_DIALOG_STYLE );
+		PreviewDialog( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxEmptyString, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 450,95 ), long style = wxDEFAULT_DIALOG_STYLE );
 		~PreviewDialog();
 	
 };

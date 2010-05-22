@@ -126,8 +126,10 @@ CBEEVBFile* FileManager::CreateEEVBFileBackup(wxString& filePath)
 	CBFREBArchive archive(filePath);
 	if(!archive.ContainsEEVB()) return NULL;
 	wxFileOutputStream output(backupPath);
-	output.Write(*archive.GetEEVBInputStream());
+	wxInputStream* stream=archive.GetEEVBInputStream();
+	output.Write(*stream);
 	output.Close();
+	delete stream;
 	archive.Close();
 	
 	return GetEEVBFile(fileName);
