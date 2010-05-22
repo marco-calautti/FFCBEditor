@@ -1834,7 +1834,7 @@
             <property name="minimum_size"></property>
             <property name="name">PreviewDialog</property>
             <property name="pos"></property>
-            <property name="size">450,88</property>
+            <property name="size">450,95</property>
             <property name="style">wxDEFAULT_DIALOG_STYLE</property>
             <property name="subclass"></property>
             <property name="title"></property>
