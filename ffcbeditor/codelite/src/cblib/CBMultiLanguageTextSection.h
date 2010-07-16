@@ -53,5 +53,6 @@ public:
 	//SetText(size_t idx,wxString&) sets the idx-th text block of the selected language.
 	virtual void SetLanguage(LanguageType lng)=0;
 	virtual LanguageType GetLanguage()=0;
+	virtual ~CBMultiLanguageTextSection(){}
 };
-#endif 
+#endif

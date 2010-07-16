@@ -40,6 +40,7 @@ public:
 	virtual char* GetWritableBuffer(wxUint32* size)=0; //returns the buffer containing all text blocks in binary form to be written to file/stream
 	virtual void FreeBuffer()=0; //deletes the writable buffer							 
 	virtual size_t Size()=0; //returns the number of text block in this text section
+	virtual ~CBTextSection(){}
 };
 
 #endif
