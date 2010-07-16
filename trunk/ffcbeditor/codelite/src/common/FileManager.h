@@ -84,4 +84,3 @@ private:
 	map<wxString,CBEEVBFile*> eevbsMap;
 };
 #endif
-
