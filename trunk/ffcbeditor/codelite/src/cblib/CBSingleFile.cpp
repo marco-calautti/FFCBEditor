@@ -104,9 +104,9 @@ int CBSingleFile::SaveTo(wxOutputStream& output)
 	output.Write(header,HEADER_SIZE);
 
 	output.Write(buf,len);
-	output.PutC(NULL);
+	output.PutC(0);
 	for(wxUint32 i=0;i<GetPaddingSize(len+1);i++)
-		output.PutC(NULL);
+		output.PutC(0);
 
 	if(unknownSection1)
 		output.Write(unknownSection1->GetData(),unknownSection1->GetDataLen());
