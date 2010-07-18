@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FFCBEditor\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-05-08 11:25+0100\n"
-"PO-Revision-Date: 2010-05-08 11:32+0100\n"
+"POT-Creation-Date: 2010-07-18 16:43+0100\n"
+"PO-Revision-Date: 2010-07-18 16:44+0100\n"
 "Last-Translator: Marco <phoenix_87_c@hotmail.com>\n"
 "Language-Team: Phoenix\n"
 "MIME-Version: 1.0\n"
@@ -29,7 +29,7 @@ msgid "Unicode identification is not valid!"
 msgstr "Il metodo di identificazione Unicode non è valido!"
 
 #: D:\Documenti\CodeLite
-#: Projects\workspace\FFCBEditor\src/cblib/CBTextArchiveSection.cpp:201
+#: Projects\workspace\FFCBEditor\src/cblib/CBTextArchiveSection.cpp:202
 msgid "Unclosed tag!"
 msgstr "Tag non chiuso!"
 
@@ -329,7 +329,17 @@ msgid "String %d ()"
 msgstr "Stringa %d ()"
 
 #: D:\Documenti\CodeLite
-#: Projects\workspace\FFCBEditor\src/common/common.h:27
+#: Projects\workspace\FFCBEditor\src/gui/FFCBTextCtrl.cpp:56
+msgid "Tag not found"
+msgstr "Nessun tag trovato"
+
+#: D:\Documenti\CodeLite
+#: Projects\workspace\FFCBEditor\src/gui/FFCBTextCtrl.cpp:60
+msgid "No translation available"
+msgstr "Traduzione non disponibile"
+
+#: D:\Documenti\CodeLite
+#: Projects\workspace\FFCBEditor\src/common/common.h:31
 msgid ""
 "This program is free software: you can redistribute it\n"
 "and/or modify it under the terms of the GNU General\n"
@@ -342,7 +352,7 @@ msgstr ""
 "Foundation."
 
 #: D:\Documenti\CodeLite
-#: Projects\workspace\FFCBEditor\src/gui/cbgui.h:206
+#: Projects\workspace\FFCBEditor\src/gui/cbgui.h:189
 msgid "Final Fantasy Crystal Bearers Editor"
 msgstr "Final Fantasy Crystal Bearers Editor"
 
