@@ -13,7 +13,7 @@ CurrentFileName        :=
 CurrentFilePath        :=
 CurrentFileFullPath    :=
 User                   :=Administrator
-Date                   :=07/17/10
+Date                   :=07/18/10
 CodeLitePath           :="C:\Program Files\CodeLite"
 LinkerName             :=g++
 ArchiveTool            :=ar rcus
@@ -54,7 +54,7 @@ WXCFG:=gcc_lib\mswu
 WXWIN:=C:\wxWidgets-2.8.9
 Objects=src/cblib/$(IntermediateDirectory)/CBSingleFile$(ObjectSuffix) src/cblib/$(IntermediateDirectory)/CBSingleFileTextSection$(ObjectSuffix) src/cblib/$(IntermediateDirectory)/CBTextArchive$(ObjectSuffix) src/cblib/$(IntermediateDirectory)/CBTextArchiveSection$(ObjectSuffix) src/cblib/$(IntermediateDirectory)/CBFREBArchive$(ObjectSuffix) src/cblib/$(IntermediateDirectory)/CBEEVBFile$(ObjectSuffix) src/cblib/$(IntermediateDirectory)/CBEEVBTextSection$(ObjectSuffix) src/common/$(IntermediateDirectory)/ConfigManager$(ObjectSuffix) src/common/$(IntermediateDirectory)/DBManager$(ObjectSuffix) src/common/$(IntermediateDirectory)/FileManager$(ObjectSuffix) \
 	src/gui/$(IntermediateDirectory)/CBItemData$(ObjectSuffix) src/gui/$(IntermediateDirectory)/FFCBMainFrame$(ObjectSuffix) src/gui/$(IntermediateDirectory)/FFCBPreferencesDialog$(ObjectSuffix) src/gui/$(IntermediateDirectory)/FFCBPreviewDialog$(ObjectSuffix) src/gui/$(IntermediateDirectory)/FFCBSingleFilePanel$(ObjectSuffix) src/gui/$(IntermediateDirectory)/FFCBDropTarget$(ObjectSuffix) src/gui/$(IntermediateDirectory)/FFCBTextArchivePanelBase$(ObjectSuffix) src/gui/$(IntermediateDirectory)/FFCBTextArchivePanel$(ObjectSuffix) src/gui/$(IntermediateDirectory)/cbgui$(ObjectSuffix) src/gui/$(IntermediateDirectory)/FFCBEEVBFilePanel$(ObjectSuffix) \
-	src/$(IntermediateDirectory)/app$(ObjectSuffix) $(IntermediateDirectory)/resource.rc$(ObjectSuffix) 
+	src/gui/$(IntermediateDirectory)/FFCBTextCtrl$(ObjectSuffix) src/$(IntermediateDirectory)/app$(ObjectSuffix) $(IntermediateDirectory)/resource.rc$(ObjectSuffix) 
 
 ##
 ## Main Build Targets 
@@ -214,6 +214,13 @@ src/gui/$(IntermediateDirectory)/FFCBEEVBFilePanel$(DependSuffix): src/gui/FFCBE
 	@$(MakeDirCommand) "src/gui/Release"
 	@$(CompilerName) $(CmpOptions) $(IncludePath) -MTsrc/gui/$(IntermediateDirectory)/FFCBEEVBFilePanel$(ObjectSuffix) -MFsrc/gui/$(IntermediateDirectory)/FFCBEEVBFilePanel$(DependSuffix) -MM "D:/Documenti/CodeLite Projects/workspace/FFCBEditor/src/gui/FFCBEEVBFilePanel.cpp"
 
+src/gui/$(IntermediateDirectory)/FFCBTextCtrl$(ObjectSuffix): src/gui/FFCBTextCtrl.cpp src/gui/$(IntermediateDirectory)/FFCBTextCtrl$(DependSuffix)
+	@$(MakeDirCommand) "src/gui/Release"
+	$(CompilerName) $(SourceSwitch) "D:/Documenti/CodeLite Projects/workspace/FFCBEditor/src/gui/FFCBTextCtrl.cpp" $(CmpOptions) $(ObjectSwitch)src/gui/$(IntermediateDirectory)/FFCBTextCtrl$(ObjectSuffix) $(IncludePath)
+src/gui/$(IntermediateDirectory)/FFCBTextCtrl$(DependSuffix): src/gui/FFCBTextCtrl.cpp
+	@$(MakeDirCommand) "src/gui/Release"
+	@$(CompilerName) $(CmpOptions) $(IncludePath) -MTsrc/gui/$(IntermediateDirectory)/FFCBTextCtrl$(ObjectSuffix) -MFsrc/gui/$(IntermediateDirectory)/FFCBTextCtrl$(DependSuffix) -MM "D:/Documenti/CodeLite Projects/workspace/FFCBEditor/src/gui/FFCBTextCtrl.cpp"
+
 src/$(IntermediateDirectory)/app$(ObjectSuffix): src/app.cpp src/$(IntermediateDirectory)/app$(DependSuffix)
 	@$(MakeDirCommand) "src/Release"
 	$(CompilerName) $(SourceSwitch) "D:/Documenti/CodeLite Projects/workspace/FFCBEditor/src/app.cpp" $(CmpOptions) $(ObjectSwitch)src/$(IntermediateDirectory)/app$(ObjectSuffix) $(IncludePath)
@@ -294,6 +301,9 @@ clean:
 	$(RM) src/gui/$(IntermediateDirectory)/FFCBEEVBFilePanel$(ObjectSuffix)
 	$(RM) src/gui/$(IntermediateDirectory)/FFCBEEVBFilePanel$(DependSuffix)
 	$(RM) src/gui/$(IntermediateDirectory)/FFCBEEVBFilePanel$(PreprocessSuffix)
+	$(RM) src/gui/$(IntermediateDirectory)/FFCBTextCtrl$(ObjectSuffix)
+	$(RM) src/gui/$(IntermediateDirectory)/FFCBTextCtrl$(DependSuffix)
+	$(RM) src/gui/$(IntermediateDirectory)/FFCBTextCtrl$(PreprocessSuffix)
 	$(RM) src/$(IntermediateDirectory)/app$(ObjectSuffix)
 	$(RM) src/$(IntermediateDirectory)/app$(DependSuffix)
 	$(RM) src/$(IntermediateDirectory)/app$(PreprocessSuffix)
