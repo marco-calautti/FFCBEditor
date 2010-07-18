@@ -39,6 +39,11 @@ private:
 	wxXmlDocument doc;
 	//private constructor (singleton)
 	DBManager();
+	DBManager(const DBManager&){}
+	DBManager& operator=(const DBManager&)
+	{
+		return *instance;
+	}
 
 public:
 	

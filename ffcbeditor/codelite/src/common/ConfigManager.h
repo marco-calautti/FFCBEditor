@@ -27,6 +27,11 @@ class ConfigManager : public wxObject
 private:
 	static ConfigManager* instance;
 	ConfigManager();
+	ConfigManager(const ConfigManager&){}
+	ConfigManager& operator=(const ConfigManager&)
+	{
+		return *instance;
+	}
 	virtual ~ConfigManager();
 
 public:
