@@ -55,6 +55,8 @@
       <File Name="src/gui/cbgui.cpp"/>
       <File Name="src/gui/FFCBEEVBFilePanel.h"/>
       <File Name="src/gui/FFCBEEVBFilePanel.cpp"/>
+      <File Name="src/gui/FFCBTextCtrl.cpp"/>
+      <File Name="src/gui/FFCBTextCtrl.h"/>
     </VirtualDirectory>
     <File Name="src/app.cpp"/>
     <File Name="src/app.h"/>
@@ -66,8 +68,6 @@
   </VirtualDirectory>
   <Dependencies Name="Debug"/>
   <Dependencies Name="Release"/>
-  <Dependencies Name="Debug Others"/>
-  <Dependencies Name="Release Others"/>
   <Settings Type="Executable">
     <GlobalSettings>
       <Compiler Options="">
@@ -191,6 +191,8 @@
       </AdditionalRules>
     </Configuration>
   </Settings>
+  <Dependencies Name="Debug Others"/>
   <Dependencies Name="Debug Windows"/>
+  <Dependencies Name="Release Others"/>
   <Dependencies Name="Release Windows"/>
 </CodeLite_Project>

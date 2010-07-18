@@ -39,7 +39,7 @@ SingleFilePanel::SingleFilePanel( wxWindow* parent, wxWindowID id, const wxPoint
 	wxStaticBoxSizer* sbSizer1;
 	sbSizer1 = new wxStaticBoxSizer( new wxStaticBox( this, wxID_ANY, _("Text to edit:") ), wxVERTICAL );
 	
-	textField = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, wxHSCROLL|wxTE_MULTILINE );
+	textField = new FFCBTextCtrl(this,wxID_ANY);
 	sbSizer1->Add( textField, 1, wxALL|wxEXPAND, 1 );
 	
 	bSizer4->Add( sbSizer1, 1, wxALL|wxEXPAND, 5 );
@@ -119,8 +119,8 @@ TextArchivePanel::TextArchivePanel( wxWindow* parent, wxWindowID id, const wxPoi
 	wxStaticBoxSizer* sbSizer3;
 	sbSizer3 = new wxStaticBoxSizer( new wxStaticBox( this, wxID_ANY, _("Text to edit:") ), wxVERTICAL );
 	
-	textField = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, wxHSCROLL|wxTE_MULTILINE );
-	sbSizer3->Add( textField, 1, wxALL|wxEXPAND, 5 );
+	textField = new FFCBTextCtrl(this,wxID_ANY);
+	sbSizer3->Add( textField, 1, wxALL|wxEXPAND, 1 );
 	
 	bSizer8->Add( sbSizer3, 1, wxEXPAND, 5 );
 	

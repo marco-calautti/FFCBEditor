@@ -18,7 +18,7 @@
 #include <wx/settings.h>
 #include <wx/sizer.h>
 #include <wx/panel.h>
-#include <wx/textctrl.h>
+#include "FFCBTextCtrl.h"
 #include <wx/statbox.h>
 #include <wx/button.h>
 #include <wx/choice.h>
@@ -30,6 +30,7 @@
 #include <wx/treectrl.h>
 #include <wx/splitter.h>
 #include <wx/frame.h>
+#include <wx/textctrl.h>
 #include <wx/dialog.h>
 
 ///////////////////////////////////////////////////////////////////////////
@@ -63,7 +64,7 @@ class SingleFilePanel : public wxPanel
 		
 	
 	protected:
-		wxTextCtrl* textField;
+		FFCBTextCtrl* textField;
 		wxButton* applyButton;
 		
 		// Virtual event handlers, overide them in your derived class
@@ -112,7 +113,7 @@ class TextArchivePanel : public wxPanel
 		wxBoxSizer* customSizer;
 		wxStaticText* m_staticText8;
 		wxChoice* textSelectionChoice;
-		wxTextCtrl* textField;
+		FFCBTextCtrl* textField;
 		wxCheckBox* duplicateCheckBox;
 		wxButton* applyButton;
 		wxButton* saveAllButton;
