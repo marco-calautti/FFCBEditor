@@ -53,8 +53,8 @@ UNIT_TEST_PP_SRC_DIR:=C:\UnitTest++-1.3
 WXCFG:=gcc_lib\mswu
 WXWIN:=C:\wxWidgets-2.8.9
 Objects=src/cblib/$(IntermediateDirectory)/CBSingleFile$(ObjectSuffix) src/cblib/$(IntermediateDirectory)/CBSingleFileTextSection$(ObjectSuffix) src/cblib/$(IntermediateDirectory)/CBTextArchive$(ObjectSuffix) src/cblib/$(IntermediateDirectory)/CBTextArchiveSection$(ObjectSuffix) src/cblib/$(IntermediateDirectory)/CBFREBArchive$(ObjectSuffix) src/cblib/$(IntermediateDirectory)/CBEEVBFile$(ObjectSuffix) src/cblib/$(IntermediateDirectory)/CBEEVBTextSection$(ObjectSuffix) src/common/$(IntermediateDirectory)/ConfigManager$(ObjectSuffix) src/common/$(IntermediateDirectory)/DBManager$(ObjectSuffix) src/common/$(IntermediateDirectory)/FileManager$(ObjectSuffix) \
-	src/gui/$(IntermediateDirectory)/CBItemData$(ObjectSuffix) src/gui/$(IntermediateDirectory)/FFCBMainFrame$(ObjectSuffix) src/gui/$(IntermediateDirectory)/FFCBPreferencesDialog$(ObjectSuffix) src/gui/$(IntermediateDirectory)/FFCBPreviewDialog$(ObjectSuffix) src/gui/$(IntermediateDirectory)/FFCBSingleFilePanel$(ObjectSuffix) src/gui/$(IntermediateDirectory)/FFCBDropTarget$(ObjectSuffix) src/gui/$(IntermediateDirectory)/FFCBTextArchivePanelBase$(ObjectSuffix) src/gui/$(IntermediateDirectory)/FFCBTextArchivePanel$(ObjectSuffix) src/gui/$(IntermediateDirectory)/cbgui$(ObjectSuffix) src/gui/$(IntermediateDirectory)/FFCBEEVBFilePanel$(ObjectSuffix) \
-	src/gui/$(IntermediateDirectory)/FFCBTextCtrl$(ObjectSuffix) src/$(IntermediateDirectory)/app$(ObjectSuffix) $(IntermediateDirectory)/resource.rc$(ObjectSuffix) 
+	src/common/$(IntermediateDirectory)/TagManager$(ObjectSuffix) src/gui/$(IntermediateDirectory)/CBItemData$(ObjectSuffix) src/gui/$(IntermediateDirectory)/FFCBMainFrame$(ObjectSuffix) src/gui/$(IntermediateDirectory)/FFCBPreferencesDialog$(ObjectSuffix) src/gui/$(IntermediateDirectory)/FFCBPreviewDialog$(ObjectSuffix) src/gui/$(IntermediateDirectory)/FFCBSingleFilePanel$(ObjectSuffix) src/gui/$(IntermediateDirectory)/FFCBDropTarget$(ObjectSuffix) src/gui/$(IntermediateDirectory)/FFCBTextArchivePanelBase$(ObjectSuffix) src/gui/$(IntermediateDirectory)/FFCBTextArchivePanel$(ObjectSuffix) src/gui/$(IntermediateDirectory)/cbgui$(ObjectSuffix) \
+	src/gui/$(IntermediateDirectory)/FFCBEEVBFilePanel$(ObjectSuffix) src/gui/$(IntermediateDirectory)/FFCBTextCtrl$(ObjectSuffix) src/$(IntermediateDirectory)/app$(ObjectSuffix) $(IntermediateDirectory)/resource.rc$(ObjectSuffix) 
 
 ##
 ## Main Build Targets 
@@ -143,6 +143,13 @@ src/common/$(IntermediateDirectory)/FileManager$(ObjectSuffix): src/common/FileM
 src/common/$(IntermediateDirectory)/FileManager$(DependSuffix): src/common/FileManager.cpp
 	@$(MakeDirCommand) "src/common/Release"
 	@$(CompilerName) $(CmpOptions) $(IncludePath) -MTsrc/common/$(IntermediateDirectory)/FileManager$(ObjectSuffix) -MFsrc/common/$(IntermediateDirectory)/FileManager$(DependSuffix) -MM "D:/Documenti/CodeLite Projects/workspace/FFCBEditor/src/common/FileManager.cpp"
+
+src/common/$(IntermediateDirectory)/TagManager$(ObjectSuffix): src/common/TagManager.cpp src/common/$(IntermediateDirectory)/TagManager$(DependSuffix)
+	@$(MakeDirCommand) "src/common/Release"
+	$(CompilerName) $(SourceSwitch) "D:/Documenti/CodeLite Projects/workspace/FFCBEditor/src/common/TagManager.cpp" $(CmpOptions) $(ObjectSwitch)src/common/$(IntermediateDirectory)/TagManager$(ObjectSuffix) $(IncludePath)
+src/common/$(IntermediateDirectory)/TagManager$(DependSuffix): src/common/TagManager.cpp
+	@$(MakeDirCommand) "src/common/Release"
+	@$(CompilerName) $(CmpOptions) $(IncludePath) -MTsrc/common/$(IntermediateDirectory)/TagManager$(ObjectSuffix) -MFsrc/common/$(IntermediateDirectory)/TagManager$(DependSuffix) -MM "D:/Documenti/CodeLite Projects/workspace/FFCBEditor/src/common/TagManager.cpp"
 
 src/gui/$(IntermediateDirectory)/CBItemData$(ObjectSuffix): src/gui/CBItemData.cpp src/gui/$(IntermediateDirectory)/CBItemData$(DependSuffix)
 	@$(MakeDirCommand) "src/gui/Release"
@@ -271,6 +278,9 @@ clean:
 	$(RM) src/common/$(IntermediateDirectory)/FileManager$(ObjectSuffix)
 	$(RM) src/common/$(IntermediateDirectory)/FileManager$(DependSuffix)
 	$(RM) src/common/$(IntermediateDirectory)/FileManager$(PreprocessSuffix)
+	$(RM) src/common/$(IntermediateDirectory)/TagManager$(ObjectSuffix)
+	$(RM) src/common/$(IntermediateDirectory)/TagManager$(DependSuffix)
+	$(RM) src/common/$(IntermediateDirectory)/TagManager$(PreprocessSuffix)
 	$(RM) src/gui/$(IntermediateDirectory)/CBItemData$(ObjectSuffix)
 	$(RM) src/gui/$(IntermediateDirectory)/CBItemData$(DependSuffix)
 	$(RM) src/gui/$(IntermediateDirectory)/CBItemData$(PreprocessSuffix)

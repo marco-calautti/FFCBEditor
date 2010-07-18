@@ -1,5 +1,5 @@
 #include "DBManager.h"
-#include<wx/file.h>
+#include <wx/file.h>
 
 DBManager* DBManager::instance=NULL; //initialize instance
 
