@@ -32,6 +32,8 @@
       <File Name="src/common/DBManager.h"/>
       <File Name="src/common/FileManager.h"/>
       <File Name="src/common/FileManager.cpp"/>
+      <File Name="src/common/TagManager.h"/>
+      <File Name="src/common/TagManager.cpp"/>
     </VirtualDirectory>
     <VirtualDirectory Name="gui">
       <File Name="src/gui/CBItemData.cpp"/>

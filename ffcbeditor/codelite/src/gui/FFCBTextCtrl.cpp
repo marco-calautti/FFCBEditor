@@ -1,5 +1,6 @@
 #include <wx/msgdlg.h>
 #include "FFCBTextCtrl.h"
+#include "../common/TagManager.h"
 
 BEGIN_EVENT_TABLE( FFCBTextCtrl, wxTextCtrl )
 	EVT_ENTER_WINDOW(FFCBTextCtrl::OnMouseOver )
@@ -26,18 +27,21 @@ void FFCBTextCtrl::OnMouseOver(wxMouseEvent& event)
 
 wxString FFCBTextCtrl::GetTagValue(wxTextCoord col,wxTextCoord row)
 {
-	wxTextCoord start,end;
+	wxTextCoord start=-1,end=-1;
 	wxString line=GetLineText(row);
+	bool found=false;
+	
 	//finding '<'
 	for(int i=col;i>=0;i--){
 		if(i<col&&line[i]=='>') //we are not inside a tag
 			return wxEmptyString;
 		if(line[i]=='<'){ //found
 			start=i;
+			found=true;
 			break;
 		}
 	}
-	
+	if(!found) return wxEmptyString;
 	//finding '>' (if we are here, we must find only '>'
 	for(int i=col;i<line.Length();i++){
 		if(line[i]=='>'){ //found
@@ -45,11 +49,16 @@ wxString FFCBTextCtrl::GetTagValue(wxTextCoord col,wxTextCoord row)
 			break;
 		}
 	}
-	wxString tag=line.SubString(start,end);
+	wxString tag=line.SubString(start+1,end-1);
 	
-	//TO-DO: here we should use some TagManager...
-	//wxString value=TagManager::GetInstance()->GetValue(tag);
-	//return value;
-	//just for now return the tag value
-	return tag;
+	wxString value,translation;
+	if(!TagManager::GetInstance()->GetTagValues(tag,&value,&translation))
+		return _("Tag not found");
+	wxString res;
+	res<<value<<wxT(" | ");
+	if(translation.IsEmpty())
+		res<<_("No translation available");
+	else
+		res<<translation;
+	return res;
 }
