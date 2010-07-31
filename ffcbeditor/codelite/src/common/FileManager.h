@@ -36,6 +36,11 @@ using namespace std;
 class FileManager : public wxObject
 {
 	FileManager();
+	FileManager(const FileManager&){}
+	FileManager& operator=(const FileManager&)
+	{
+		return *instance;
+	}
 	
 public:
 	static FileManager* GetInstance();
